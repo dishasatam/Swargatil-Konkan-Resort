@@ -1,0 +1,390 @@
+.container{
+    
+	width: 100%;
+   height:18%;
+	background-image: url(goa.jpg);
+   
+	 background-position: center;
+	background-repeat: no-repeat;
+   padding-left: 8%;
+   padding-right: 8%;
+  box-sizing: border-box;
+}
+.header{
+	  
+	   display: flex;
+	   align-items: center;
+		overflow: hidden;
+		 position: relative;
+}
+
+.logo{
+width: 200px;
+cursor: pointer;
+}
+.navbar{
+text-align: center;
+flex: 1;
+}
+.navbar a{
+padding: 8px 15px;
+text-decoration: rgb(48, 245, 22);
+color:rgb(12, 8, 12);
+margin-left: 20px;
+font-size: 18px;
+font-weight: bold;
+text-shadow: 1px 1px 1px #0be80e;
+
+}
+
+.box
+{
+ background:rgb(232, 185, 143);
+ padding: 7px 15px;
+ color: #100909;
+ font-weight:bolder;
+ font-size: 16px;
+ cursor: pointer;
+ position: relative;
+ z-index: 0;
+ border-radius: 12px;
+ }
+
+	
+/* The Services section is fixed to the middle of the page */
+
+body{
+   
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    
+}
+.contain{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    flex-wrap: wrap;
+    gap: 100px 50px;
+    padding: 100px 50px;
+}
+.contain .card{
+    position: relative;
+    width: 500px;
+    height: 330px;
+    background:rgb(49, 46, 46);
+    border-radius: 20px;
+    box-shadow: 0 35px 80px rgba(0,0,0,0.15);
+    transition: 0.5s;
+}
+
+
+.contain .card .img8x{
+    position: absolute;
+    top: 20px;
+    left: 100px;
+    width: 300px;
+    height: 220px;
+    background: #333;
+    border-radius: 12px;
+    overflow: hidden;
+    transition: 0.5s;
+}
+.contain .card:hover .img8x{
+    top: -100px;
+    scale:0.7s;
+    box-shadow: 0 15px 45px rgba(0,0,0,0.2);
+}
+
+.contain .card .img8x img
+{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.contain .card .content {
+    position: absolute;
+    top: 252px;
+   
+    width: 100%;
+    height: 50px;
+    overflow: hidden;
+    padding: 10px 1px;
+    text-align: center;
+    transition: 0.3s;
+}
+.contain .card:hover .content {
+    top:150px;
+    height: 250px;
+    }
+.contain .card .content h2{
+    font-size: 1.5em;
+    font-weight: 700;
+    color: var(--clr);
+       
+}
+.contain .card .content p{
+    font-size: 1.0em;
+    color: aliceblue;
+       
+}
+
+
+
+
+h1, 
+h3 { 
+    text-align: center; 
+    text-transform: uppercase; 
+} 
+
+h1 { 
+    position: relative; 
+    max-width: max-content; 
+    margin: 2rem auto 5rem auto; 
+} 
+
+h1::after { 
+    content: ""; 
+    position: absolute; 
+    width: 75%; 
+    height: 5px; 
+    background-color: lightgreen; 
+    bottom: -2rem; 
+    left: 25px; 
+} 
+
+.service-card .h4{
+   background-color: #0c620d;
+
+}
+
+
+
+.services-container { 
+    max-width: 1200px; 
+    margin: 0 auto; 
+    padding: 20px; 
+    display: flex; 
+    flex-wrap: nowrap; 
+    justify-content: space-around; 
+} 
+
+.service-card { 
+    cursor: pointer; 
+    width: 300px; 
+    margin: 20px; 
+    padding: 2rem 20px 20px 20px; 
+    text-align: center; 
+    border-radius: 5px; 
+    transition: all 0.3s ease-in-out; 
+    color: #0c620d;
+    
+} 
+
+.icon-container { 
+    border: 2px solid rgb(96, 203, 96); 
+    transition: 0.3s linear; 
+    width:max-content;
+    margin: 0 auto; 
+}
+.icon-container img{
+    width: 60px;
+    height: 60px; 
+}
+.service-card:hover { 
+    box-shadow: 0 0 30px 0 lightgreen; 
+    transform: scale(1.1); 
+} 
+
+.service-card a { 
+    color: rgb(18, 62, 18); 
+    text-decoration: none; 
+} 
+
+@media (max-width: 768px) { 
+    .service-card { 
+        width: 100%; 
+    } 
+}
+
+
+/* The footer is fixed to the bottom of the page */
+footer {
+    position: fixed;
+    bottom: 0;
+    }
+    
+    @media (max-height:800px) 
+    {
+    footer {
+        position: static;
+    }
+    header {
+        padding-top: 40px;
+    }
+    }
+    
+    .footer-distributed {
+    background-color: #2d2a30;
+    box-sizing: border-box;
+    width: 100%;
+    height: 400px;
+    text-align: left;
+    font: bold 16px sans-serif;
+    padding: 90px 50px 60px 50px;
+    margin-top: 80px;
+    }
+    
+    .footer-distributed .footer-left, .footer-distributed .footer-center, .footer-distributed .footer-right {
+    display: inline-block;
+    vertical-align: top;
+    }
+    
+    /* Footer left */
+    
+    .footer-distributed .footer-left {
+    width: 30%;
+    }
+    
+    .footer-distributed h3 {
+    color: #ffffff;
+    font: normal 36px 'Cookie', cursive;
+    margin: 0;
+    }
+    
+    
+    .footer-distributed h3 span {
+    color: #e0ac1c;
+    }
+    
+    /* Footer links */
+    
+    .footer-distributed .footer-links {
+    color: #ffffff;
+    margin: 20px 0 12px;
+    }
+    
+    .footer-distributed .footer-links a {
+    display: inline-block;
+    line-height: 1.8;
+    text-decoration: none;
+    color: inherit;
+    }
+    
+    .footer-distributed .footer-company-name {
+    color: #8f9296;
+    font-size: 14px;
+    font-weight: normal;
+    margin: 0;
+    }
+    
+    /* Footer Center */
+    
+    .footer-distributed .footer-center {
+    width: 35%;
+    }
+    
+    .footer-distributed .footer-center i {
+    background-color: #33383b;
+    color: #ffffff;
+    font-size: 25px;
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 42px;
+    margin: 10px 15px;
+    vertical-align: middle;
+    }
+    
+    .footer-distributed .footer-center i.fa-envelope {
+    font-size: 17px;
+    line-height: 38px;
+    }
+    
+    .footer-distributed .footer-center p {
+    display: inline-block;
+    color: #ffffff;
+    vertical-align: middle;
+    margin: 0;
+    }
+    
+    .footer-distributed .footer-center p span {
+    display: block;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 2;
+    }
+    
+    .footer-distributed .footer-center p a {
+    color: #e0ac1c;
+    text-decoration: none;
+    ;
+    }
+    
+    /* Footer Right */
+    
+    .footer-distributed .footer-right {
+    width: 30%;
+    }
+    
+    .footer-distributed .footer-company-about {
+    line-height: 20px;
+    color: #92999f;
+    font-size: 13px;
+    font-weight: normal;
+    margin: 0;
+    }
+    
+    .footer-distributed .footer-company-about span {
+    display: block;
+    color: #ffffff;
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    } 
+    
+    
+    .footer-distributed .footer-icons a {
+    display: inline-block;
+    width: 35px;
+    height: 35px;
+    cursor: pointer;
+    background-color: #33383b;
+    border-radius: 2px;
+    font-size: 20px;
+    color: #ffffff;
+    text-align: center;
+    line-height: 35px;
+    margin-right: 3px;
+    margin-bottom: 5px;
+    }
+    
+    .footer-distributed .footer-icons a:hover {
+    background-color: #3F71EA;
+    }
+    
+    .footer-links a:hover {
+    color: #3F71EA;
+    }
+    
+    @media (max-width: 880px) {
+    .footer-distributed .footer-left, .footer-distributed .footer-center, .footer-distributed .footer-right {
+        display: block;
+        width: 100%;
+        margin-bottom: 40px;
+        text-align: center;
+    }
+    .footer-distributed .footer-center i {
+        margin-left: 0;
+    }
+    }       
+        
+    
+        
+    

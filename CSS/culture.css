@@ -1,0 +1,109 @@
+
+	h1{color:rgb(249, 246, 249);background:rgb(20, 185, 185);}
+	h4{color:rgb(241, 248, 241);background:rgb(0, 0, 0);font-size: 20px;}
+	h2{color:rgb(250, 250, 252);background:rgb(236, 6, 6);font-size: 25px;}
+	p{color:rgb(72, 4, 72);font-size: 20px;}
+	hr{size:8px;color:rgb(119, 116, 10);}
+    
+    .container{
+    
+        width: 100%;
+       height:18%;
+        background-image: url(goa.jpg);
+       background-size: cover;
+         background-position: center;
+        background-repeat: no-repeat;
+       padding-left: 8%;
+       padding-right: 8%;
+      box-sizing: border-box;
+   }
+   .header{
+          
+           display: flex;
+           align-items: center;
+            overflow: hidden;
+             position: relative;
+   }
+   
+.logo{
+    width: 200px;
+    cursor: pointer;
+}
+.navbar{
+    text-align: center;
+    flex: 1;
+}
+.navbar a{
+    padding: 8px 15px;
+    text-decoration: rgb(48, 245, 22);
+    color:rgb(12, 8, 12);
+    margin-left: 20px;
+    font-size: 18px;
+    font-weight: bold;
+    text-shadow: 1px 1px 1px #0be80e;
+    
+}
+
+.box
+  {
+     background:rgb(232, 185, 143);
+     padding: 7px 15px;
+     color: #100909;
+     font-weight:bolder;
+     font-size: 16px;
+     cursor: pointer;
+     position: relative;
+     z-index: 0;
+     border-radius: 12px;
+     }
+  
+        .content {
+            font-size: 70px;
+            color: hsl(0, 89%, 38%);
+            text-align: center;
+            font-family: 'Times New Roman', Times, serif ;
+            padding: 50px 50px;
+            text-shadow: 8px 8px 8px rgb(26, 22, 22);
+            }
+
+
+
+        
+
+    
+    .rotateimg{
+        position: relative;
+        width: 230px;
+        height: 230px;
+        transform-style: preserve-3d;
+        animation: animate 30s linear infinite;
+    }
+    @keyframes animate {
+        0%{
+            transform: perspective(1000px) rotateY(0deg);
+        }
+        100%{
+            transform: perspective(1000px) rotateY(-370deg);
+        }
+    }
+    .rotateimg span{
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        left: 0;
+        top: 0;
+        transform-style: preserve-3d;
+        transform-origin: center;
+        transform:  rotateY(calc(var(--i)*45deg))   translateZ(370px);
+      
+    }
+    .rotateimg span img{
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        object-fit: cover;
+        border-radius: 20px;
+        transition: 1.5s;
+    }

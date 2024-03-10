@@ -1,0 +1,129 @@
+
+body { 
+    margin: 0; 
+    display: flex; 
+    align-items: center; 
+    justify-content: space-around; 
+    flex-direction: column; 
+  
+    background-image:url(goa.jpg); 
+   
+    font-family: 'Poppins', sans-serif; 
+  
+} 
+  
+.textup { 
+    text-align: center; 
+    color: rgb(12, 184, 15); 
+    font-weight: 700; 
+} 
+  
+i { 
+    margin-right: 3px; 
+} 
+  
+.form-box { 
+    background-image: url(goa.jpg) blur(10px);
+   
+    box-shadow: 0 0 20px rgba(14, 17, 15, 0.8); 
+    padding: 15px; 
+    border-radius: 8px; 
+    width: 600px; 
+    height: 650px;
+} 
+  
+form { 
+    max-width: 400px; 
+    margin: 0 auto; 
+} 
+  
+.radio-group { 
+    display: flex; 
+    margin-bottom: 16px; 
+    justify-content: flex-end;
+} 
+  
+input[type="radio"] { 
+    margin-right: 8px; 
+} 
+  
+label { 
+    display: block; 
+    margin-bottom: 8px; 
+    font-size: 17px; 
+    color: rgb(11, 5, 28); 
+    font-weight: 1000; 
+} 
+  
+input, 
+textarea { 
+    width: 100%; 
+    padding: 8px; 
+    margin-bottom: 12px; 
+    box-sizing: border-box; 
+    border-radius: 10px; 
+  
+   
+  
+  
+  
+  
+} 
+  
+button { 
+    background-color: #e11212; 
+    color: #fff; 
+    padding: 10px; 
+    border: none; 
+    border-radius: 25px; 
+    cursor: pointer; 
+    width: 100%; 
+    font-size: 15px; 
+    transition: .2s linear; 
+} 
+  
+button:hover { 
+    background-color: #940707; 
+    border: none; 
+    transform: translateY(-10px); 
+} 
+  
+h3 { 
+    color: rgb(128, 30, 0);
+    font-size: 50px;
+    text-align: center;
+}
+
+
+.rate-box {
+    display: flex;
+    flex-direction: row-reverse ;
+    gap: 0.5rem;
+    justify-content: flex-end;
+  }
+  .rate-box input {
+    display: none;
+  }
+  .rate-box input:hover ~ .star:before {
+    color: rgba(255, 204, 51, 0.5);
+  }
+  .rate-box input:active + .star:before {
+    transform: scale(0.9);
+  }
+  .rate-box input:checked ~ .star:before {
+    color: #ffcc33;
+    text-shadow: 3px 3px 8px rgba(0, 0, 0, 0.3), -3px -3px 8px rgba(255, 255, 255, 0.8);
+  }
+  .rate-box .star:before {
+    content: "★";
+    display: inline-block;
+    font-family: "Potta One", cursive;
+    font-size: 2em;
+    cursor: pointer;
+    color: #0000;
+    text-shadow: 2px 2px 3px rgba(255, 255, 255, 0.5);
+    background-color: #aaa;
+    background-clip: text;
+    -webkit-background-clip: text;
+    transition: all 0.3s;
+  }
