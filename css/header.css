@@ -1,0 +1,384 @@
+/* ========================================================
+   css/header.css - Universal Swargatil Konkan Resort Header
+   ======================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,400&family=Cookie&display=swap');
+
+/* ========================================================
+   1. Universal Full-Width Header Containers (Edge-to-Edge)
+   ======================================================== */
+.resort-header-container,
+.contain.resort-header-container,
+.container.resort-header-container,
+.header-wrapper,
+header.resort-header-wrapper {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-height: unset !important;
+    height: auto !important;
+    background-image: linear-gradient(rgba(15, 20, 28, 0.75), rgba(15, 20, 28, 0.82)), url("../images/goa.jpg") !important;
+    background-size: cover !important;
+    background-position: center !important;
+    background-repeat: no-repeat !important;
+    padding: 10px 30px !important;
+    box-sizing: border-box !important;
+    border-radius: 0 !important;
+    margin: 0 !important;
+    border-bottom: 2px solid rgba(224, 172, 28, 0.45) !important;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.35) !important;
+    position: relative !important;
+    z-index: 1000 !important;
+}
+
+/* ========================================================
+   2. Homepage (web.html) Full-Width Hero Header Layout
+   ======================================================== */
+.container:not(.resort-header-container) {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    padding-top: 0 !important;
+    width: 100% !important;
+    max-width: 100% !important;
+}
+
+.container:not(.resort-header-container) > .header {
+    width: 100% !important;
+    max-width: 100% !important;
+    border-radius: 0 !important;
+    margin: 0 !important;
+    padding: 10px 30px !important;
+    box-sizing: border-box !important;
+    background: rgba(14, 18, 24, 0.65) !important;
+    backdrop-filter: blur(10px) !important;
+    -webkit-backdrop-filter: blur(10px) !important;
+    border-top: none !important;
+    border-left: none !important;
+    border-right: none !important;
+    border-bottom: 1.5px solid rgba(224, 172, 28, 0.45) !important;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.35) !important;
+}
+
+.container:not(.resort-header-container) > .content {
+    padding-left: 8% !important;
+    padding-right: 8% !important;
+    margin: auto 0 !important;
+    text-align: center !important;
+}
+
+/* ========================================================
+   3. Master Header Row (Single Horizontal Line Across Full Width)
+   ======================================================== */
+.header,
+.resort-header {
+    width: 100% !important;
+    max-width: 100% !important;
+    height: auto !important;
+    min-height: unset !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    flex-wrap: nowrap !important; /* Single sleek row on desktop */
+    position: relative !important;
+    gap: 15px !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    box-sizing: border-box !important;
+    overflow: visible !important;
+}
+
+/* Logo link and image */
+.resort-logo-link {
+    display: inline-flex !important;
+    align-items: center !important;
+    text-decoration: none !important;
+    flex-shrink: 0 !important;
+}
+
+.logo,
+.resort-logo-link img.logo,
+.header img.logo {
+    width: 180px !important;
+    max-height: 62px !important;
+    height: auto !important;
+    object-fit: contain !important;
+    cursor: pointer !important;
+    filter: drop-shadow(0 3px 6px rgba(0, 0, 0, 0.5)) !important;
+    transition: transform 0.25s ease, filter 0.25s ease !important;
+    flex-shrink: 0 !important;
+}
+
+.resort-logo-link:hover img.logo,
+.logo:hover {
+    transform: scale(1.03) !important;
+    filter: drop-shadow(0 4px 10px rgba(224, 172, 28, 0.4)) !important;
+}
+
+/* ========================================================
+   4. Universal Navigation Bar (Single Sleek Row, Prominent Font)
+   ======================================================== */
+.navbar {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    flex-wrap: nowrap !important; /* Never wrap on desktop! */
+    flex: 1 1 auto !important;
+    gap: 4px 8px !important;
+    margin: 0 10px !important;
+    text-align: center !important;
+    white-space: nowrap !important;
+    min-width: 0 !important;
+}
+
+/* Navigation Links - Larger, Bold, Clearly Visible & Luxurious */
+.navbar a {
+    font-family: 'Poppins', sans-serif !important;
+    font-size: 18px !important;
+    font-weight: 600 !important;
+    letter-spacing: 0.7px !important;
+    text-transform: uppercase !important;
+    color: #ffffff !important;
+    text-decoration: none !important;
+    padding: 8px 12px !important;
+    border-radius: 6px !important;
+    transition: all 0.25s ease !important;
+    text-shadow: 0 2px 5px rgba(0, 0, 0, 0.8) !important;
+    position: relative !important;
+    white-space: nowrap !important;
+    flex-shrink: 0 !important;
+    margin: 0 !important;
+}
+
+.navbar a:hover {
+    color: #e0ac1c !important;
+    background: rgba(255, 255, 255, 0.12) !important;
+    transform: translateY(-1px) !important;
+    text-shadow: 0 0 12px rgba(224, 172, 28, 0.7) !important;
+}
+
+/* Active navigation link */
+.navbar a.active,
+.navbar a[aria-current="page"] {
+    color: #e0ac1c !important;
+    background: rgba(224, 172, 28, 0.18) !important;
+    border-bottom: 2.5px solid #e0ac1c !important;
+    box-shadow: 0 2px 8px rgba(224, 172, 28, 0.25) !important;
+}
+
+/* ========================================================
+   5. Header Action Buttons (Login, Register, Feedback, Admin)
+   ======================================================== */
+.header-actions {
+    display: flex !important;
+    align-items: center !important;
+    gap: 8px !important;
+    flex-shrink: 0 !important;
+    white-space: nowrap !important;
+}
+
+.box,
+.header-btn,
+.header-actions .box {
+    font-family: 'Poppins', sans-serif !important;
+    font-size: 14.5px !important;
+    font-weight: 600 !important;
+    letter-spacing: 0.4px !important;
+    padding: 7px 15px !important;
+    border-radius: 20px !important;
+    cursor: pointer !important;
+    text-decoration: none !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 5px !important;
+    transition: all 0.25s ease !important;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.25) !important;
+    white-space: nowrap !important;
+    flex-shrink: 0 !important;
+    border: none !important;
+    outline: none !important;
+}
+
+/* User pill badge for logged-in guest */
+.header-user-pill {
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 6px !important;
+    color: #ffffff !important;
+    font-family: 'Poppins', sans-serif !important;
+    font-size: 14.5px !important;
+    font-weight: 600 !important;
+    padding: 6px 14px !important;
+    background: rgba(224, 172, 28, 0.18) !important;
+    border: 1px solid rgba(224, 172, 28, 0.45) !important;
+    border-radius: 20px !important;
+    max-width: 200px !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+    white-space: nowrap !important;
+    flex-shrink: 0 !important;
+}
+
+/* 1. Login Button */
+.box-login {
+    background: rgba(224, 172, 28, 0.15) !important;
+    color: #ffffff !important;
+    border: 1.5px solid #e0ac1c !important;
+}
+
+.box-login:hover {
+    background: #e0ac1c !important;
+    color: #1e1b20 !important;
+    transform: translateY(-2px) !important;
+    box-shadow: 0 6px 14px rgba(224, 172, 28, 0.4) !important;
+}
+
+/* 2. Register Button */
+.box-register {
+    background: linear-gradient(135deg, #a51d24 0%, #7d1318 100%) !important;
+    color: #ffffff !important;
+    border: 1px solid #b8222a !important;
+}
+
+.box-register:hover {
+    background: linear-gradient(135deg, #b8222a 0%, #94151c 100%) !important;
+    transform: translateY(-2px) !important;
+    box-shadow: 0 6px 14px rgba(165, 29, 36, 0.45) !important;
+}
+
+/* 3. Feedback Button */
+.box-feedback,
+.box:not(.box-admin):not(.box-login):not(.box-register) {
+    background: #e8b98f !important;
+    color: #1a1617 !important;
+    border: 1px solid #d8a06e !important;
+}
+
+.box-feedback:hover,
+.box:not(.box-admin):not(.box-login):not(.box-register):hover {
+    background: #dfa877 !important;
+    transform: translateY(-2px) !important;
+    box-shadow: 0 6px 14px rgba(232, 185, 143, 0.45) !important;
+}
+
+/* 4. Admin Button */
+.box-admin,
+.box.box-admin {
+    background: #e0ac1c !important;
+    color: #1a1617 !important;
+    border: 1px solid #c79612 !important;
+}
+
+.box-admin:hover,
+.box.box-admin:hover {
+    background: #f1bc2e !important;
+    transform: translateY(-2px) !important;
+    box-shadow: 0 6px 16px rgba(224, 172, 28, 0.5) !important;
+}
+
+/* ========================================================
+   6. Responsive Layout Breakpoints
+   ======================================================== */
+@media (max-width: 1400px) {
+    .navbar a {
+        font-size: 16.5px !important;
+        padding: 6px 9px !important;
+    }
+    .logo,
+    .resort-logo-link img.logo,
+    .header img.logo {
+        width: 160px !important;
+        max-height: 55px !important;
+    }
+    .box,
+    .header-btn,
+    .header-actions .box {
+        font-size: 13.5px !important;
+        padding: 6px 12px !important;
+    }
+    .header-user-pill {
+        font-size: 13.5px !important;
+        max-width: 160px !important;
+    }
+}
+
+@media (max-width: 1180px) {
+    .resort-header-container,
+    .contain.resort-header-container,
+    .container.resort-header-container,
+    .container:not(.resort-header-container) > .header {
+        padding: 8px 16px !important;
+    }
+    .navbar a {
+        font-size: 15px !important;
+        padding: 5px 7px !important;
+        letter-spacing: 0.4px !important;
+    }
+    .logo,
+    .resort-logo-link img.logo,
+    .header img.logo {
+        width: 140px !important;
+        max-height: 48px !important;
+    }
+    .box,
+    .header-btn,
+    .header-actions .box {
+        font-size: 12.5px !important;
+        padding: 5px 10px !important;
+    }
+    .header-actions {
+        gap: 5px !important;
+    }
+    .header-user-pill {
+        max-width: 130px !important;
+        font-size: 12.5px !important;
+        padding: 4px 9px !important;
+    }
+}
+
+/* Mobile & Tablet below 992px: stack gracefully */
+@media (max-width: 992px) {
+    .resort-header-container,
+    .contain.resort-header-container,
+    .container.resort-header-container,
+    .container:not(.resort-header-container) > .header {
+        padding: 10px 16px !important;
+    }
+    .header,
+    .resort-header {
+        flex-wrap: wrap !important;
+        justify-content: space-between !important;
+    }
+    .navbar {
+        order: 3;
+        width: 100% !important;
+        flex-wrap: wrap !important;
+        margin: 8px 0 0 0 !important;
+        justify-content: center !important;
+        gap: 6px 10px !important;
+    }
+    .navbar a {
+        font-size: 14px !important;
+        padding: 6px 10px !important;
+    }
+    .header-actions {
+        order: 2;
+    }
+}
+
+@media (max-width: 576px) {
+    .logo,
+    .resort-logo-link img.logo,
+    .header img.logo {
+        width: 120px !important;
+    }
+    .navbar a {
+        font-size: 13px !important;
+        padding: 4px 6px !important;
+    }
+    .box,
+    .header-btn,
+    .header-actions .box {
+        font-size: 12px !important;
+        padding: 5px 10px !important;
+    }
+}

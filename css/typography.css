@@ -1,0 +1,301 @@
+/* ========================================================
+   css/typography.css - Universal Luxury Typography for Swargatil Konkan Resort
+   ======================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,400&family=Mukta:wght@400;600;700;800&display=swap');
+
+/* Site-wide Base Typography */
+body {
+    font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
+    font-size: 18px !important;
+    line-height: 1.75 !important;
+    color: #2b2b2b;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* Headings Upgrade */
+h1 {
+    font-family: 'Poppins', 'Playfair Display', serif !important;
+    font-size: 46px !important;
+    font-weight: 700 !important;
+    line-height: 1.25 !important;
+    letter-spacing: 0.5px !important;
+    margin-bottom: 20px !important;
+    text-align: center;
+}
+
+h2 {
+    font-family: 'Poppins', 'Playfair Display', serif !important;
+    font-size: 32px !important;
+    font-weight: 600 !important;
+    line-height: 1.35 !important;
+    letter-spacing: 0.3px !important;
+    margin-top: 15px !important;
+    margin-bottom: 15px !important;
+}
+
+h3 {
+    font-family: 'Poppins', sans-serif !important;
+    font-size: 24px !important;
+    font-weight: 600 !important;
+    line-height: 1.45 !important;
+    margin-bottom: 12px !important;
+}
+
+h4 {
+    font-family: 'Poppins', sans-serif !important;
+    font-size: 20px !important;
+    font-weight: 500 !important;
+    line-height: 1.6 !important;
+    margin-bottom: 10px !important;
+}
+
+p {
+    font-family: 'Poppins', sans-serif !important;
+    font-size: 18px !important;
+    line-height: 1.75 !important;
+    color: #383838;
+}
+
+/* ----------------------------------------------------
+   Page-Specific Typography Enhancements
+   ---------------------------------------------------- */
+
+/* 1. web.html (Home Page Hero) */
+.content h1 {
+    font-family: 'Mukta', 'Poppins', sans-serif !important;
+    font-size: 78px !important;
+    font-weight: 800 !important;
+    letter-spacing: 1.5px !important;
+    line-height: 1.15 !important;
+    color: #b31217 !important;
+    text-shadow: 2px 4px 18px rgba(0, 0, 0, 0.45), 0 0 25px rgba(255, 255, 255, 0.35) !important;
+}
+
+.content .btn {
+    font-family: 'Poppins', sans-serif !important;
+    font-size: 22px !important;
+    font-weight: 700 !important;
+    letter-spacing: 1.2px !important;
+    padding: 14px 44px !important;
+    border-radius: 35px !important;
+    text-transform: uppercase !important;
+    transition: all 0.3s ease !important;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.35) !important;
+}
+
+.content .btn:hover {
+    transform: translateY(-3px) scale(1.02) !important;
+    box-shadow: 0 10px 28px rgba(224, 172, 28, 0.45) !important;
+}
+
+/* 2. About.html Typography */
+.about_content h1,
+body > h1:first-of-type {
+    font-size: 46px !important;
+    font-weight: 700 !important;
+    color: #1e1b20 !important;
+    margin-top: 30px !important;
+}
+
+.spilt-section h4,
+.split_section_text h4 {
+    font-family: 'Poppins', sans-serif !important;
+    font-size: 19px !important;
+    font-weight: 400 !important;
+    line-height: 1.85 !important;
+    color: #404040 !important;
+}
+
+/* Marathi Tagline in About */
+h2:has-text,
+h2[style*="font"],
+.about-welcome-marathi,
+h2:first-of-type {
+    font-family: 'Mukta', 'Poppins', sans-serif !important;
+    font-size: 34px !important;
+    font-weight: 700 !important;
+    color: #b71c1c !important;
+    letter-spacing: 0.5px !important;
+    text-align: center;
+}
+
+/* About Descriptions */
+h4 {
+    color: #404040;
+    max-width: 1050px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* 3. Menu.html Typography */
+h1.mid {
+    font-size: 46px !important;
+    font-weight: 700 !important;
+    letter-spacing: 1px !important;
+    color: #ffffff !important;
+    background: #b71c1c !important;
+    padding: 16px 20px !important;
+    border-radius: 6px !important;
+    margin: 25px auto !important;
+    max-width: 1200px !important;
+    text-align: center !important;
+    box-shadow: 0 4px 15px rgba(183, 28, 28, 0.3) !important;
+}
+
+/* Menu description paragraph */
+h1.mid + h3,
+body > h3:first-of-type {
+    font-size: 19px !important;
+    font-weight: 400 !important;
+    line-height: 1.8 !important;
+    color: #3a3a3a !important;
+    max-width: 1050px !important;
+    margin: 25px auto !important;
+    text-align: center !important;
+    padding: 0 20px !important;
+}
+
+/* Menu food items and captions */
+.menu-item .title,
+.menu-item-title,
+.dish-title {
+    font-family: 'Poppins', sans-serif !important;
+    font-size: 22px !important;
+    font-weight: 700 !important;
+    color: #1e1b20 !important;
+    margin: 12px 0 6px 0 !important;
+    letter-spacing: 0.3px !important;
+    text-align: center !important;
+}
+
+/* 4. Service.html Typography */
+body > h1:first-of-type {
+    font-size: 46px !important;
+    font-weight: 700 !important;
+    color: #2b2b2b !important;
+    margin: 30px auto 25px !important;
+    text-align: center !important;
+    text-transform: uppercase !important;
+    letter-spacing: 1px !important;
+}
+
+.card h2 {
+    font-size: 26px !important;
+    font-weight: 700 !important;
+    letter-spacing: 0.8px !important;
+    margin-bottom: 12px !important;
+}
+
+.card p {
+    font-size: 16.5px !important;
+    line-height: 1.7 !important;
+    color: #444444 !important;
+}
+
+/* 5. Contact.html & Booked.html Form Typography */
+form label {
+    font-family: 'Poppins', sans-serif !important;
+    font-size: 17.5px !important;
+    font-weight: 600 !important;
+    color: #2b2b2b !important;
+    margin-bottom: 8px !important;
+    display: inline-block !important;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+input[type="date"],
+input[type="number"],
+input[type="password"],
+select,
+textarea {
+    font-family: 'Poppins', sans-serif !important;
+    font-size: 16.5px !important;
+    padding: 12px 16px !important;
+    border-radius: 8px !important;
+    border: 1px solid #c9c9c9 !important;
+    color: #222222 !important;
+    box-sizing: border-box !important;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+    border-color: #e0ac1c !important;
+    outline: none !important;
+    box-shadow: 0 0 8px rgba(224, 172, 28, 0.4) !important;
+}
+
+/* Form Submit Buttons */
+button[type="submit"],
+.submit-btn,
+.btn-primary {
+    font-family: 'Poppins', sans-serif !important;
+    font-size: 18px !important;
+    font-weight: 700 !important;
+    letter-spacing: 0.8px !important;
+    padding: 12px 32px !important;
+    border-radius: 25px !important;
+    cursor: pointer !important;
+    transition: all 0.25s ease !important;
+}
+
+/* 6. Culture & Tourism Typography */
+.culture-title,
+h2.culture-heading {
+    font-size: 30px !important;
+    font-weight: 700 !important;
+    margin-top: 25px !important;
+}
+
+/* 7. Gallery Typography */
+.gallery-detail-title-section h1 {
+    font-size: 42px !important;
+    font-weight: 700 !important;
+}
+
+.gallery-detail-title-section p {
+    font-size: 18.5px !important;
+    line-height: 1.75 !important;
+}
+
+/* Responsive typography adjustments */
+@media (max-width: 992px) {
+    body {
+        font-size: 17px !important;
+    }
+    h1 {
+        font-size: 38px !important;
+    }
+    .content h1 {
+        font-size: 58px !important;
+    }
+    h2 {
+        font-size: 28px !important;
+    }
+}
+
+@media (max-width: 576px) {
+    body {
+        font-size: 16px !important;
+    }
+    h1 {
+        font-size: 32px !important;
+    }
+    .content h1 {
+        font-size: 42px !important;
+    }
+    .content .btn {
+        font-size: 18px !important;
+        padding: 11px 30px !important;
+    }
+    h2 {
+        font-size: 24px !important;
+    }
+    p {
+        font-size: 16px !important;
+    }
+}

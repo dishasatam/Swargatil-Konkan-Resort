@@ -1,0 +1,198 @@
+/* ========================================================
+   css/home-booking.css - Homepage Resort Booking Section
+   ======================================================== */
+
+.home-booking-section {
+    width: 100%;
+    padding: 70px 8% 80px 8%;
+    background: linear-gradient(180deg, #fbf9f4 0%, #f4ede1 100%);
+    box-sizing: border-box;
+    position: relative;
+    border-top: 3px solid #e0ac1c;
+}
+
+.booking-container {
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.booking-section-header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.booking-badge {
+    display: inline-block;
+    background: rgba(224, 172, 28, 0.2);
+    color: #9b7204;
+    border: 1px solid rgba(224, 172, 28, 0.5);
+    padding: 6px 18px;
+    border-radius: 20px;
+    font-size: 13.5px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 12px;
+}
+
+.booking-section-header h2 {
+    font-family: 'Playfair Display', Georgia, serif !important;
+    font-size: 38px !important;
+    font-weight: 700 !important;
+    color: #1e1b20 !important;
+    margin: 0 0 10px 0 !important;
+}
+
+.booking-section-header .marathi-tagline {
+    font-family: 'Mukta', sans-serif !important;
+    font-size: 22px !important;
+    font-weight: 700 !important;
+    color: #a51d24 !important;
+    margin: 0 0 12px 0 !important;
+}
+
+.booking-section-header .booking-subtitle {
+    font-size: 16px !important;
+    color: #666 !important;
+    max-width: 750px;
+    margin: 0 auto;
+    line-height: 1.6;
+}
+
+/* Booking Card */
+.home-booking-card {
+    background: #ffffff;
+    border-radius: 20px;
+    padding: 45px 50px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(224, 172, 28, 0.35);
+    box-sizing: border-box;
+}
+
+.booking-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 22px 28px;
+}
+
+.booking-grid .full-width {
+    grid-column: span 2;
+}
+
+.home-booking-card .form-group {
+    margin-bottom: 0;
+    text-align: left;
+}
+
+.home-booking-card label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14.5px;
+    font-weight: 600;
+    color: #2d2a30;
+    margin-bottom: 8px;
+}
+
+.home-booking-card label i {
+    color: #a51d24;
+    font-size: 14px;
+}
+
+.home-booking-card input,
+.home-booking-card select,
+.home-booking-card textarea {
+    width: 100%;
+    padding: 13px 16px !important;
+    border: 1.5px solid #dcd7ce !important;
+    border-radius: 10px !important;
+    font-family: 'Poppins', sans-serif !important;
+    font-size: 15px !important;
+    color: #222 !important;
+    background: #faf9f6 !important;
+    box-sizing: border-box !important;
+    transition: all 0.25s ease !important;
+}
+
+.home-booking-card input:focus,
+.home-booking-card select:focus,
+.home-booking-card textarea:focus {
+    border-color: #e0ac1c !important;
+    background: #ffffff !important;
+    outline: none !important;
+    box-shadow: 0 0 0 3px rgba(224, 172, 28, 0.2) !important;
+}
+
+/* Submit Actions */
+.booking-actions {
+    margin-top: 35px;
+    text-align: center;
+}
+
+.booking-submit-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    background: linear-gradient(135deg, #a51d24 0%, #851319 100%);
+    color: #ffffff;
+    padding: 16px 45px;
+    border-radius: 35px;
+    border: none;
+    font-family: 'Poppins', sans-serif;
+    font-size: 18px;
+    font-weight: 700;
+    letter-spacing: 0.8px;
+    cursor: pointer;
+    box-shadow: 0 8px 25px rgba(165, 29, 36, 0.35);
+    transition: all 0.25s ease;
+}
+
+.booking-submit-btn:hover {
+    background: linear-gradient(135deg, #b8222a 0%, #94151c 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 12px 30px rgba(165, 29, 36, 0.45);
+}
+
+.booking-features-pills {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 15px 30px;
+    margin-top: 25px;
+    color: #555;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.booking-features-pills span {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.booking-features-pills i {
+    color: #2e7d32;
+    font-size: 15px;
+}
+
+/* Responsive */
+@media (max-width: 820px) {
+    .home-booking-card {
+        padding: 30px 22px;
+    }
+    .booking-grid {
+        grid-template-columns: 1fr;
+    }
+    .booking-grid .full-width {
+        grid-column: span 1;
+    }
+    .booking-section-header h2 {
+        font-size: 30px !important;
+    }
+    .booking-submit-btn {
+        width: 100%;
+        padding: 14px 20px;
+        font-size: 16.5px;
+    }
+}

@@ -1,0 +1,239 @@
+<!DOCTYPE html> 
+<html lang="en"> 
+<head> 
+    <meta charset="UTF-8"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <title>Authentication Portal - Swargatil Konkan Resort</title> 
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"> 
+    <link href="https://fonts.googleapis.com/css?family=Cookie" rel="stylesheet" type="text/css">
+    
+    <link rel="stylesheet" href="../css/login.css?v=2.5"> 
+    <link rel="stylesheet" href="../css/header.css?v=3.1">
+    <link rel="stylesheet" href="../css/typography.css?v=2.3">
+    <link rel="stylesheet" href="../css/footer.css?v=2.3">
+</head> 
+  
+<body> 
+    <!-- Resort Universal Header -->
+    <div class="resort-header-container">
+        <div class="header">
+            <a href="web.html" class="resort-logo-link">
+                <img src="../images/logo3.png" class="logo" alt="Swargatil Konkan Logo">
+            </a>
+            <div class="navbar">
+                <a href="web.html">HOME</a>
+                <a href="About.html">ABOUT</a>
+                <a href="Menu.html">MENU</a>
+                <a href="Service.html">SERVICES</a>
+                <a href="Gallery.html">GALLERY</a>
+                <a href="Culture.html">CULTURE</a>
+                <a href="Contact.html">CONTACT US</a>
+            </div>
+            <div class="header-actions">
+            <a href="Login.html?mode=login"><button class="box box-login" type="button"><i class="fa fa-user"></i> Login</button></a>
+            <a href="Login.html?mode=register"><button class="box box-register" type="button"><i class="fa fa-user-plus"></i> Register</button></a>
+            <a href="feedback.html"><button class="box box-feedback" type="button">Feedback</button></a>
+            <a href="admin.html"><button class="box box-admin" type="button" style="margin-left: 4px;">Admin</button></a>
+        </div>
+        </div>
+    </div>
+
+    <!-- Master Auth Page Wrapper (ensures natural sticky footer layout) -->
+    <main class="auth-page-wrapper">
+        <div class="auth-card">
+            <a href="web.html" class="auth-back-nav">
+                <i class="fa fa-arrow-left"></i> Back to Resort Home
+            </a>
+
+            <!-- Portal Switcher: Guest Portal vs Admin Portal -->
+            <div class="portal-tabs">
+                <button type="button" class="portal-tab-btn active" id="tabGuest" onclick="switchPortal('guest')">
+                    <i class="fa fa-user"></i> Guest Portal
+                </button>
+                <button type="button" class="portal-tab-btn admin-tab" id="tabAdmin" onclick="switchPortal('admin')">
+                    <i class="fa fa-shield-halved"></i> Staff / Admin
+                </button>
+            </div>
+
+            <!-- Global Alert Container -->
+            <div id="authAlert" class="auth-alert"></div>
+
+            <!-- ================= GUEST PORTAL SECTION ================= -->
+            <div id="guestSection">
+                <div class="auth-header">
+                    <h2 id="guestHeaderTitle">Guest Sign In</h2>
+                    <p id="guestHeaderSubtitle">Access your bookings and exclusive resort privileges</p>
+                </div>
+
+                <!-- Guest Login vs Register Mode Toggle -->
+                <div class="guest-mode-toggle">
+                    <button type="button" class="guest-mode-btn active" id="modeLoginBtn" onclick="toggleGuestMode('login')">
+                        Sign In
+                    </button>
+                    <button type="button" class="guest-mode-btn" id="modeRegisterBtn" onclick="toggleGuestMode('register')">
+                        New Registration
+                    </button>
+                </div>
+
+                <!-- 1. GUEST LOGIN FORM -->
+                <form id="guestLoginForm">
+                    <div class="form-group">
+                        <label for="guestUser">Username or Email</label>
+                        <input type="text" id="guestUser" name="guestUser" placeholder="Enter username or email" required autocomplete="username">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="guestPassword">Password</label>
+                        <div class="password-input-wrap">
+                            <input type="password" id="guestPassword" name="guestPassword" placeholder="Enter password" required autocomplete="current-password">
+                            <button type="button" class="toggle-password-btn" onclick="togglePasswordVisibility('guestPassword', this)" title="Show/Hide Password">
+                                <i class="fa fa-eye"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="auth-submit-btn" id="guestLoginSubmitBtn">
+                        <i class="fa fa-right-to-bracket"></i> Sign In to Resort
+                    </button>
+
+                    <div class="auth-footer-prompt">
+                        Don't have an account? <a onclick="toggleGuestMode('register')">Register as a Guest</a>
+                    </div>
+                </form>
+
+                <!-- 2. GUEST REGISTRATION FORM -->
+                <form id="guestRegisterForm" style="display: none;">
+                    <div class="form-group">
+                        <label for="regFullName">Full Name</label>
+                        <input type="text" id="regFullName" name="regFullName" placeholder="e.g. Rahul Patil" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="regUsername">Choose Username</label>
+                        <input type="text" id="regUsername" name="regUsername" placeholder="e.g. rahul_patil" required autocomplete="username">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="regEmail">Email Address</label>
+                        <input type="email" id="regEmail" name="regEmail" placeholder="e.g. rahul@gmail.com" required autocomplete="email">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="regPhone">Phone Number</label>
+                        <input type="tel" id="regPhone" name="regPhone" placeholder="10-digit mobile number" pattern="[0-9]{10}" maxlength="10">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="regPassword">Choose Password</label>
+                        <div class="password-input-wrap">
+                            <input type="password" id="regPassword" name="regPassword" placeholder="Minimum 6 characters" minlength="6" required autocomplete="new-password">
+                            <button type="button" class="toggle-password-btn" onclick="togglePasswordVisibility('regPassword', this)" title="Show/Hide Password">
+                                <i class="fa fa-eye"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="auth-submit-btn" id="guestRegisterSubmitBtn">
+                        <i class="fa fa-user-check"></i> Complete Registration
+                    </button>
+
+                    <div class="auth-footer-prompt">
+                        Already have an account? <a onclick="toggleGuestMode('login')">Sign In here</a>
+                    </div>
+                </form>
+            </div>
+
+            <!-- ================= ADMIN PORTAL SECTION ================= -->
+            <div id="adminSection" style="display: none;">
+                <div class="auth-header">
+                    <h2>Staff & Admin Portal</h2>
+                    <p>Resort Operations, Bookings Management & Analytics</p>
+                </div>
+
+                <form id="adminLoginForm">
+                    <div class="form-group">
+                        <label for="adminUser">Admin Username</label>
+                        <input type="text" id="adminUser" name="adminUser" placeholder="Enter admin username" required autocomplete="username">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="adminPassword">Admin Password</label>
+                        <div class="password-input-wrap">
+                            <input type="password" id="adminPassword" name="adminPassword" placeholder="Enter admin password" required autocomplete="current-password">
+                            <button type="button" class="toggle-password-btn" onclick="togglePasswordVisibility('adminPassword', this)" title="Show/Hide Password">
+                                <i class="fa fa-eye"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="auth-submit-btn admin-btn" id="adminLoginSubmitBtn">
+                        <i class="fa fa-gauge-high"></i> Access Admin Dashboard
+                    </button>
+
+                    <div class="admin-badge-hint">
+                        <i class="fa fa-circle-info"></i> <strong>Authorized Staff Only:</strong><br>
+                        Default credentials: Username <code>admin</code> | Password <code>Admin@123</code>
+                    </div>
+
+                    <div class="auth-footer-prompt">
+                        Are you a resort guest? <a onclick="switchPortal('guest')">Go to Guest Portal</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </main>
+
+    <!-- Master Resort Sticky Footer -->
+    <footer class="footer-distributed">
+        <div class="footer-left">
+            <h3>Swargatil<span>Konkan</span></h3>
+            <p class="footer-links">
+                <a href="web.html">Home</a> |
+                <a href="About.html">About</a> |
+                <a href="Menu.html">Menu</a> |
+                <a href="Service.html">Services</a> |
+                <a href="Gallery.html">Gallery</a> |
+                <a href="Culture.html">Culture</a> |
+                <a href="rate.html">Tariff</a> |
+                <a href="web.html#booking-section">Book Now</a> |
+                <a href="admin.html">Admin Dashboard</a>
+            </p>
+            <p class="footer-company-name">Copyright © 2021 <strong>swargatilkokan</strong> All rights reserved</p>
+        </div>
+
+        <div class="footer-center">
+            <div>
+                <i class="fa fa-map-marker"></i>
+                <p><span>Devgad, Sindhudurg</span> Maharashtra, India</p>
+            </div>
+            <div>
+                <i class="fa fa-phone"></i>
+                <p>+91 9836543624</p>
+            </div>
+            <div>
+                <i class="fa fa-envelope"></i>
+                <p><a href="mailto:swargatilkokan@gmail.com">swargatilkokan@gmail.com</a></p>
+            </div>
+        </div>
+
+        <div class="footer-right">
+            <p class="footer-company-about">
+                <span>About the Resort</span>
+                <strong>Swargatil Konkan</strong> is a luxury coastal resort situated in Devgad, Sindhudurg along the pristine Konkan kinara.
+            </p>
+            <div class="footer-icons">
+                <a href="https://www.facebook.com/" target="_blank"><i class="fa-brands fa-facebook"></i></a>
+                <a href="https://www.instagram.com/" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+                <a href="https://www.linkedin.com/" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
+                <a href="https://twitter.com/" target="_blank"><i class="fa-brands fa-twitter"></i></a>
+                <a href="https://www.youtube.com/" target="_blank"><i class="fa-brands fa-youtube"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Client Script -->
+    <script src="../js/login.js?v=2.5"></script>
+    <script src="../js/header.js?v=3.0"></script>
+</body> 
+</html>

@@ -1,0 +1,355 @@
+/* ========================================================
+   css/booking-modal.css - Luxury Booking & Auth Modal Popup
+   ======================================================== */
+
+/* Modal Backdrop Overlay */
+.booking-modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(14, 18, 24, 0.78);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    z-index: 99999;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    box-sizing: border-box;
+    overflow-y: auto;
+}
+
+.booking-modal-overlay.active {
+    display: flex;
+}
+
+/* Modal Window Card */
+.booking-modal-card {
+    background: #ffffff;
+    width: 100%;
+    max-width: 640px;
+    border-radius: 20px;
+    padding: 35px 40px;
+    box-shadow: 0 25px 65px rgba(0, 0, 0, 0.45);
+    border: 2px solid rgba(224, 172, 28, 0.5);
+    position: relative;
+    box-sizing: border-box;
+    max-height: 90vh;
+    overflow-y: auto;
+    animation: modalSlideIn 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes modalSlideIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px) scale(0.96);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+/* Modal Close Button */
+.modal-close-btn {
+    position: absolute;
+    top: 18px;
+    right: 20px;
+    background: #f3efea;
+    border: none;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    font-size: 18px;
+    color: #444;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+    z-index: 10;
+}
+
+.modal-close-btn:hover {
+    background: #a51d24;
+    color: #fff;
+    transform: rotate(90deg);
+}
+
+/* Modal Headers */
+.modal-header-section {
+    text-align: center;
+    margin-bottom: 25px;
+    padding-right: 20px;
+}
+
+.modal-badge {
+    display: inline-block;
+    background: rgba(224, 172, 28, 0.18);
+    color: #926902;
+    border: 1px solid rgba(224, 172, 28, 0.4);
+    padding: 4px 14px;
+    border-radius: 15px;
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    margin-bottom: 8px;
+}
+
+.modal-header-section h2 {
+    font-family: 'Playfair Display', Georgia, serif !important;
+    font-size: 30px !important;
+    font-weight: 700 !important;
+    color: #1e1b20 !important;
+    margin: 0 0 6px 0 !important;
+}
+
+.modal-header-section p {
+    font-size: 14.5px !important;
+    color: #666 !important;
+    margin: 0 !important;
+}
+
+/* Guest Logged In User Pill */
+.guest-logged-pill {
+    background: #fdf8eb;
+    border: 1px solid #e0ac1c;
+    border-radius: 10px;
+    padding: 10px 16px;
+    margin-bottom: 22px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 14px;
+    color: #443202;
+}
+
+.guest-logged-pill span strong {
+    color: #8d1c1c;
+}
+
+.guest-logout-link {
+    color: #8d1c1c;
+    font-weight: 600;
+    text-decoration: underline;
+    cursor: pointer;
+    font-size: 13px;
+}
+
+/* Form Layout inside Modal */
+.modal-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px 20px;
+}
+
+.modal-grid .full-span {
+    grid-column: span 2;
+}
+
+.modal-form-group {
+    text-align: left;
+}
+
+.modal-form-group label {
+    display: block;
+    font-size: 13.5px;
+    font-weight: 600;
+    color: #2d2a30;
+    margin-bottom: 6px;
+}
+
+.modal-form-group input,
+.modal-form-group select,
+.modal-form-group textarea {
+    width: 100%;
+    padding: 11px 14px !important;
+    border: 1.5px solid #dcd7ce !important;
+    border-radius: 9px !important;
+    font-family: 'Poppins', sans-serif !important;
+    font-size: 14.5px !important;
+    color: #222 !important;
+    background: #faf9f6 !important;
+    box-sizing: border-box !important;
+    transition: all 0.2s ease !important;
+}
+
+.modal-form-group input:focus,
+.modal-form-group select:focus,
+.modal-form-group textarea:focus {
+    border-color: #e0ac1c !important;
+    background: #ffffff !important;
+    outline: none !important;
+    box-shadow: 0 0 0 3px rgba(224, 172, 28, 0.2) !important;
+}
+
+/* Submit Button */
+.modal-submit-btn {
+    width: 100%;
+    padding: 14px;
+    background: linear-gradient(135deg, #a51d24 0%, #851319 100%);
+    color: #ffffff;
+    border: none;
+    border-radius: 28px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 16.5px;
+    font-weight: 700;
+    letter-spacing: 0.6px;
+    cursor: pointer;
+    box-shadow: 0 6px 20px rgba(165, 29, 36, 0.35);
+    transition: all 0.25s ease;
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.modal-submit-btn:hover {
+    background: linear-gradient(135deg, #b8222a 0%, #94151c 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(165, 29, 36, 0.45);
+}
+
+/* Modal Booking Guarantees */
+.modal-guarantees {
+    display: flex;
+    justify-content: center;
+    gap: 18px;
+    margin-top: 18px;
+    font-size: 12.5px;
+    color: #666;
+    flex-wrap: wrap;
+}
+
+.modal-guarantees span {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.modal-guarantees i {
+    color: #2e7d32;
+}
+
+/* ---------------- Auth Required Gateway View ---------------- */
+.auth-gate-box {
+    text-align: center;
+    padding: 10px 0;
+}
+
+.auth-gate-icon {
+    font-size: 54px;
+    color: #e0ac1c;
+    margin-bottom: 12px;
+}
+
+.auth-gate-box h3 {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 26px;
+    color: #1e1b20;
+    margin-bottom: 8px;
+}
+
+.auth-gate-box p {
+    font-size: 15px;
+    color: #555;
+    margin-bottom: 25px;
+    line-height: 1.6;
+}
+
+.auth-gate-tabs {
+    display: flex;
+    background: #f1ede4;
+    border-radius: 12px;
+    padding: 4px;
+    margin-bottom: 20px;
+    gap: 4px;
+}
+
+.auth-gate-tab-btn {
+    flex: 1;
+    border: none;
+    background: transparent;
+    padding: 9px;
+    border-radius: 8px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    color: #555;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.auth-gate-tab-btn.active {
+    background: #ffffff;
+    color: #8d1c1c;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+
+.gate-form-group {
+    margin-bottom: 14px;
+    text-align: left;
+}
+
+.gate-form-group label {
+    display: block;
+    font-size: 13.5px;
+    font-weight: 600;
+    color: #2d2a30;
+    margin-bottom: 5px;
+}
+
+.gate-form-group input {
+    width: 100%;
+    padding: 11px 14px !important;
+    border: 1.5px solid #d9d4cc !important;
+    border-radius: 9px !important;
+    font-family: 'Poppins', sans-serif !important;
+    font-size: 14.5px !important;
+    box-sizing: border-box !important;
+    background: #faf9f6 !important;
+}
+
+.gate-form-group input:focus {
+    border-color: #e0ac1c !important;
+    background: #fff !important;
+    outline: none !important;
+}
+
+.gate-alert {
+    padding: 8px 12px;
+    border-radius: 6px;
+    font-size: 13px;
+    margin-bottom: 12px;
+    display: none;
+}
+
+.gate-alert.error {
+    background: #fde8e8;
+    color: #c81e1e;
+    border: 1px solid #f8b4b4;
+    display: block;
+}
+
+.gate-alert.success {
+    background: #def7ec;
+    color: #03543f;
+    border: 1px solid #bcf0da;
+    display: block;
+}
+
+@media (max-width: 600px) {
+    .booking-modal-card {
+        padding: 25px 20px;
+    }
+    .modal-grid {
+        grid-template-columns: 1fr;
+    }
+    .modal-grid .full-span {
+        grid-column: span 1;
+    }
+}

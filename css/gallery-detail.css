@@ -1,0 +1,167 @@
+/* css/gallery-detail.css - Luxury Gallery Showcase Styling */
+
+.gallery-detail-body {
+  background-color: #faf8f5;
+  font-family: 'Poppins', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #333;
+  margin: 0;
+  padding: 0;
+}
+
+.gallery-detail-header-wrap {
+  width: 100%;
+  background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url("../images/goa.jpg");
+  background-size: cover;
+  background-position: center;
+  padding: 15px 8%;
+  box-sizing: border-box;
+}
+
+.gallery-breadcrumb {
+  max-width: 1200px;
+  margin: 25px auto 10px;
+  padding: 0 20px;
+  font-size: 14px;
+}
+
+.gallery-breadcrumb a {
+  color: #2e7d32;
+  text-decoration: none;
+  font-weight: 700;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: color 0.2s;
+}
+
+.gallery-breadcrumb a:hover {
+  color: #1b5e20;
+  text-decoration: underline;
+}
+
+.gallery-detail-title-section {
+  max-width: 1200px;
+  margin: 10px auto 30px;
+  padding: 0 20px;
+  text-align: center;
+}
+
+.gallery-detail-title-section h1 {
+  font-family: 'Times New Roman', Times, serif;
+  font-size: 38px;
+  color: #8d1c1c;
+  margin-bottom: 10px;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+}
+
+.gallery-detail-title-section p {
+  color: #666;
+  font-size: 16px;
+  max-width: 700px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+.gallery-grid {
+  max-width: 1200px;
+  margin: 0 auto 50px;
+  padding: 0 20px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+  gap: 24px;
+}
+
+.gallery-card {
+  background: #fff;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: 1px solid #f0e6d2;
+}
+
+.gallery-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+}
+
+.gallery-card-img-wrap {
+  width: 100%;
+  height: 280px;
+  overflow: hidden;
+  position: relative;
+  background: #eee;
+}
+
+.gallery-card-img-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.gallery-card:hover .gallery-card-img-wrap img {
+  transform: scale(1.06);
+}
+
+.gallery-card-caption {
+  padding: 16px 20px;
+  text-align: center;
+  background: #fff;
+}
+
+.gallery-card-caption h4 {
+  font-size: 17px;
+  color: #2d2a30;
+  margin-bottom: 4px;
+}
+
+.gallery-card-caption p {
+  font-size: 13px;
+  color: #777;
+  margin: 0;
+}
+
+/* Booking CTA Section */
+.gallery-cta-banner {
+  max-width: 1200px;
+  margin: 40px auto 60px;
+  padding: 35px 30px;
+  background: linear-gradient(135deg, #2d2a30, #1e1b20);
+  border-radius: 16px;
+  text-align: center;
+  color: #fff;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.18);
+  border: 2px solid #e0ac1c;
+}
+
+.gallery-cta-banner h2 {
+  font-size: 28px;
+  font-family: 'Times New Roman', Times, serif;
+  color: #e0ac1c;
+  margin-bottom: 10px;
+}
+
+.gallery-cta-banner p {
+  font-size: 15px;
+  color: #ddd;
+  margin-bottom: 22px;
+}
+
+.gallery-cta-btn {
+  display: inline-block;
+  padding: 12px 32px;
+  background: #e0ac1c;
+  color: #1e1b20;
+  text-decoration: none;
+  font-weight: bold;
+  border-radius: 30px;
+  font-size: 16px;
+  transition: all 0.2s ease;
+}
+
+.gallery-cta-btn:hover {
+  background: #ffb300;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(224, 172, 28, 0.4);
+}

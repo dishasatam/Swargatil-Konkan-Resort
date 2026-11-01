@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Room Rates & Tariff - Swargatil Konkan Resort</title>
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Cookie" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="../css/style.css">
+      <link rel="stylesheet" href="../css/header.css?v=3.1">
+    <link rel="stylesheet" href="../css/typography.css?v=2.1">
+    <link rel="stylesheet" href="../css/footer.css?v=2.1">
+  <style>
+    body { background-color: #faf8f5; font-family: 'Poppins', sans-serif; color: #333; margin: 0; }
+    .header-wrap {
+      width: 100%;
+      background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url("../images/goa.jpg");
+      background-size: cover;
+      background-position: center;
+      padding: 15px 8%;
+      box-sizing: border-box;
+    }
+    .pricing-hero {
+      text-align: center;
+      padding: 50px 20px 20px;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    .pricing-hero h1 {
+      font-size: 42px;
+      font-family: 'Times New Roman', serif;
+      color: #8d1c1c;
+      margin-bottom: 8px;
+    }
+    .pricing-hero h3 {
+      color: #e0ac1c;
+      font-family: 'Times New Roman', serif;
+      font-size: 24px;
+      margin-bottom: 15px;
+    }
+    .pricing-hero p {
+      color: #666;
+      font-size: 16px;
+      line-height: 1.6;
+    }
+    .pricing-grid {
+      max-width: 1200px;
+      margin: 40px auto 60px;
+      padding: 0 20px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 30px;
+    }
+    .pricing-card {
+      background: #fff;
+      border-radius: 16px;
+      padding: 35px 25px;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.06);
+      border: 1px solid #eee;
+      text-align: center;
+      transition: all 0.3s ease;
+      position: relative;
+    }
+    .pricing-card.featured {
+      border: 2px solid #e0ac1c;
+      box-shadow: 0 10px 30px rgba(224, 172, 28, 0.18);
+      transform: scale(1.02);
+    }
+    .pricing-badge {
+      position: absolute;
+      top: -14px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: #e0ac1c;
+      color: #1e1b20;
+      font-size: 12px;
+      font-weight: bold;
+      text-transform: uppercase;
+      padding: 4px 16px;
+      border-radius: 20px;
+    }
+    .pricing-card h2 {
+      font-size: 24px;
+      color: #2d2a30;
+      margin-bottom: 8px;
+    }
+    .pricing-price {
+      font-size: 38px;
+      font-weight: bold;
+      color: #2e7d32;
+      margin: 15px 0;
+    }
+    .pricing-price span {
+      font-size: 15px;
+      color: #888;
+      font-weight: normal;
+    }
+    .pricing-features {
+      list-style: none;
+      padding: 0;
+      margin: 25px 0 30px;
+      text-align: left;
+    }
+    .pricing-features li {
+      padding: 10px 0;
+      border-bottom: 1px solid #f4f4f4;
+      font-size: 14px;
+      color: #555;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .pricing-features li i {
+      color: #2e7d32;
+    }
+    .btn-book-plan {
+      display: block;
+      width: 100%;
+      padding: 14px;
+      background: #2e7d32;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 8px;
+      font-weight: bold;
+      font-size: 15px;
+      transition: background 0.2s;
+      box-sizing: border-box;
+    }
+    .btn-book-plan:hover {
+      background: #1b5e20;
+    }
+    .featured .btn-book-plan {
+      background: #e0ac1c;
+      color: #1e1b20;
+    }
+    .featured .btn-book-plan:hover {
+      background: #ffb300;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Unified Resort Header -->
+  <div class="resort-header-container">
+    <div class="header">
+        <a href="web.html" class="resort-logo-link">
+            <img src="../images/logo3.png" class="logo" alt="Swargatil Konkan Logo">
+        </a>
+        <div class="navbar">
+                    <a href="web.html">HOME</a>
+                    <a href="About.html">ABOUT</a>
+                    <a href="Menu.html">MENU</a>
+                    <a href="Service.html">SERVICES</a>
+                    <a href="Gallery.html">GALLERY</a>
+                    <a href="Culture.html">CULTURE</a>
+                    <a href="Contact.html">CONTACT US</a>
+        </div>
+        <div class="header-actions">
+            <a href="Login.html?mode=login"><button class="box box-login" type="button"><i class="fa fa-user"></i> Login</button></a>
+            <a href="Login.html?mode=register"><button class="box box-register" type="button"><i class="fa fa-user-plus"></i> Register</button></a>
+            <a href="feedback.html"><button class="box box-feedback" type="button">Feedback</button></a>
+            <a href="admin.html"><button class="box box-admin" type="button" style="margin-left: 4px;">Admin</button></a>
+        </div>
+    </div>
+</div>
+
+  <div class="pricing-hero">
+    <h1>Room Rates & Tariff</h1>
+    <h3>खोल्यांचे दर आणि सोयीसुविधा</h3>
+    <p>Choose from our authentic wooden cottages and luxury sea-view suites designed for couples, families, and vacationers looking for genuine Konkan hospitality.</p>
+  </div>
+
+  <!-- Pricing Packages Grid -->
+  <div class="pricing-grid">
+    
+    <!-- Deluxe AC Room -->
+    <div class="pricing-card">
+      <h2>Deluxe AC Room</h2>
+      <p style="color:#777; font-size:13px;">Perfect for couples & weekend getaways</p>
+      <div class="pricing-price">₹2,500 <span>/ night</span></div>
+      <ul class="pricing-features">
+        <li><i class="fa fa-check"></i> King Size Comfortable Bed</li>
+        <li><i class="fa fa-check"></i> Air Conditioning & Fan</li>
+        <li><i class="fa fa-check"></i> Private Garden Sit-Out Balcony</li>
+        <li><i class="fa fa-check"></i> 24/7 Hot Water Facility</li>
+        <li><i class="fa fa-check"></i> Complimentary High-Speed Wi-Fi</li>
+        <li><i class="fa fa-check"></i> Swimming Pool Access</li>
+      </ul>
+      <a href="Booked.html" class="btn-book-plan">Book Deluxe Room</a>
+    </div>
+
+    <!-- Executive Suite (Featured) -->
+    <div class="pricing-card featured">
+      <div class="pricing-badge">Most Popular</div>
+      <h2>Sea-Facing Executive Suite</h2>
+      <p style="color:#777; font-size:13px;">Stunning sunrise ocean view & luxury comfort</p>
+      <div class="pricing-price">₹4,200 <span>/ night</span></div>
+      <ul class="pricing-features">
+        <li><i class="fa fa-check"></i> Unobstructed Ocean Beach View</li>
+        <li><i class="fa fa-check"></i> Complimentary Konkani Breakfast</li>
+        <li><i class="fa fa-check"></i> Spacious King Bed & Lounge Area</li>
+        <li><i class="fa fa-check"></i> Large Modern Glass Bathroom</li>
+        <li><i class="fa fa-check"></i> Room Service & Mini Fridge</li>
+        <li><i class="fa fa-check"></i> Free Swimming Pool & Gym Pass</li>
+      </ul>
+      <a href="Booked.html" class="btn-book-plan">Book Executive Suite</a>
+    </div>
+
+    <!-- Family Cottage -->
+    <div class="pricing-card">
+      <h2>Konkani Family Cottage</h2>
+      <p style="color:#777; font-size:13px;">Spacious private cottage for families & groups</p>
+      <div class="pricing-price">₹6,500 <span>/ night</span></div>
+      <ul class="pricing-features">
+        <li><i class="fa fa-check"></i> 2 Interconnected Bedrooms</li>
+        <li><i class="fa fa-check"></i> Accommodates up to 6 Guests</li>
+        <li><i class="fa fa-check"></i> Private Lawn & Outdoor Swings</li>
+        <li><i class="fa fa-check"></i> Complimentary Breakfast & Sol Kadhi</li>
+        <li><i class="fa fa-check"></i> Dedicated Concierge Service</li>
+        <li><i class="fa fa-check"></i> Children Play Area & Pool Access</li>
+      </ul>
+      <a href="Booked.html" class="btn-book-plan">Book Family Cottage</a>
+    </div>
+
+  </div>
+
+  <!-- Unified Footer -->
+  <footer class="footer-distributed">
+    <div class="footer-left">
+        <h3>Swargatil<span>Konkan</span></h3>
+        <p class="footer-links">
+            <a href="web.html">Home</a> |
+            <a href="About.html">About</a> |
+            <a href="Menu.html">Menu</a> |
+            <a href="Service.html">Services</a> |
+            <a href="Gallery.html">Gallery</a> |
+            <a href="Culture.html">Culture</a> |
+            <a href="rate.html">Tariff</a> |
+            <a href="web.html#booking-section">Book Now</a> |
+            <a href="admin.html">Admin Dashboard</a>
+        </p>
+        <p class="footer-company-name">Copyright © 2021 <strong>swargatilkokan</strong> All rights reserved</p>
+    </div>
+
+    <div class="footer-center">
+        <div>
+            <i class="fa fa-map-marker"></i>
+            <p><span>Devgad, Sindhudurg</span> Maharashtra, India</p>
+        </div>
+        <div>
+            <i class="fa fa-phone"></i>
+            <p>+91 9836543624</p>
+        </div>
+        <div>
+            <i class="fa fa-envelope"></i>
+            <p><a href="mailto:swargatilkokan@gmail.com">swargatilkokan@gmail.com</a></p>
+        </div>
+    </div>
+
+    <div class="footer-right">
+        <p class="footer-company-about">
+            <span>About the Resort</span>
+            <strong>Swargatil Konkan</strong> is a luxury coastal resort situated in Devgad, Sindhudurg along the pristine Konkan kinara.
+        </p>
+        <div class="footer-icons">
+            <a href="https://www.facebook.com/" target="_blank"><i class="fa fa-facebook"></i></a>
+            <a href="https://www.instagram.com/" target="_blank"><i class="fa fa-instagram"></i></a>
+            <a href="https://www.linkedin.com/" target="_blank"><i class="fa fa-linkedin"></i></a>
+            <a href="https://twitter.com/" target="_blank"><i class="fa fa-twitter"></i></a>
+            <a href="https://www.youtube.com/" target="_blank"><i class="fa fa-youtube"></i></a>
+        </div>
+    </div>
+</footer>
+
+    <script src="../js/header.js?v=3.0"></script>
+</body>
+</html>

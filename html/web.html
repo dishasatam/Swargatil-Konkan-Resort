@@ -1,0 +1,245 @@
+<!Doctype html>
+<html>
+    <head>
+        <title>Home Page</title>
+     
+        <link rel="stylesheet"href="../css/style.css">
+        <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Cookie" rel="stylesheet" type="text/css">
+        <link rel="stylesheet" href="../css/header.css?v=3.1">
+    <link rel="stylesheet" href="../css/typography.css?v=2.1">
+    <link rel="stylesheet" href="../css/booking-modal.css?v=2.4">
+    <link rel="stylesheet" href="../css/footer.css?v=2.1">
+       </head>
+    <body>
+        <div class="container">
+               <div class="header">
+        <a href="web.html" class="resort-logo-link">
+            <img src="../images/logo3.png" class="logo" alt="Swargatil Konkan Logo">
+        </a>
+        <div class="navbar">
+                    <a href="web.html" class="active">HOME</a>
+                    <a href="About.html">ABOUT</a>
+                    <a href="Menu.html">MENU</a>
+                    <a href="Service.html">SERVICES</a>
+                    <a href="Gallery.html">GALLERY</a>
+                    <a href="Culture.html">CULTURE</a>
+                    <a href="Contact.html">CONTACT US</a>
+        </div>
+        <div class="header-actions">
+            <a href="Login.html?mode=login"><button class="box box-login" type="button"><i class="fa fa-user"></i> Login</button></a>
+            <a href="Login.html?mode=register"><button class="box box-register" type="button"><i class="fa fa-user-plus"></i> Register</button></a>
+            <a href="feedback.html"><button class="box box-feedback" type="button">Feedback</button></a>
+            <a href="admin.html"><button class="box box-admin" type="button" style="margin-left: 4px;">Admin</button></a>
+        </div>
+    </div>
+
+   <div class="content">
+           
+                <h1>स्वर्गातील कोंकण </h1><br>
+                <button class="btn" type="button" onclick="handleBookNowClick(event)">BOOK NOW</button>
+           </div>
+       </div>
+      
+        
+    
+
+
+    <!-- ================= AUTHENTICATED BOOKING MODAL POPUP ================= -->
+    <div id="bookingModalOverlay" class="booking-modal-overlay">
+        <div class="booking-modal-card">
+            <!-- Close Button -->
+            <button type="button" class="modal-close-btn" onclick="closeBookingModal()" title="Close">&times;</button>
+
+            <!-- 1. AUTHENTICATION REQUIRED GATEWAY VIEW -->
+            <div id="modalAuthGate" class="auth-gate-box">
+                <div class="auth-gate-icon">
+                    <i class="fa fa-user-lock"></i>
+                </div>
+                <h3>Guest Sign-In Required</h3>
+                <p>To reserve a room or cottage at Swargatil Konkan Resort, please log in with your guest account or create a new registration.</p>
+
+                <div class="auth-gate-tabs">
+                    <button type="button" class="auth-gate-tab-btn active" id="gateTabLogin" onclick="switchGateTab('login')">
+                        <i class="fa fa-right-to-bracket"></i> Sign In
+                    </button>
+                    <button type="button" class="auth-gate-tab-btn" id="gateTabReg" onclick="switchGateTab('register')">
+                        <i class="fa fa-user-plus"></i> New Registration
+                    </button>
+                </div>
+
+                <div id="gateAlert" class="gate-alert"></div>
+
+                <!-- Gate Login Form -->
+                <form id="gateLoginForm">
+                    <div class="gate-form-group">
+                        <label for="gateLoginUser">Username or Email</label>
+                        <input type="text" id="gateLoginUser" placeholder="Enter your username or email" required autocomplete="username">
+                    </div>
+                    <div class="gate-form-group">
+                        <label for="gateLoginPsw">Password</label>
+                        <input type="password" id="gateLoginPsw" placeholder="Enter password" required autocomplete="current-password">
+                    </div>
+                    <button type="submit" class="modal-submit-btn">
+                        <i class="fa fa-key"></i> Log In & Proceed to Booking
+                    </button>
+                </form>
+
+                <!-- Gate Registration Form -->
+                <form id="gateRegForm" style="display: none;">
+                    <div class="gate-form-group">
+                        <label for="gateRegName">Full Name</label>
+                        <input type="text" id="gateRegName" placeholder="e.g. Rahul Patil" required>
+                    </div>
+                    <div class="gate-form-group">
+                        <label for="gateRegUser">Choose Username</label>
+                        <input type="text" id="gateRegUser" placeholder="e.g. rahul_patil" required autocomplete="username">
+                    </div>
+                    <div class="gate-form-group">
+                        <label for="gateRegEmail">Email Address</label>
+                        <input type="email" id="gateRegEmail" placeholder="example@gmail.com" required autocomplete="email">
+                    </div>
+                    <div class="gate-form-group">
+                        <label for="gateRegPhone">Phone Number</label>
+                        <input type="tel" id="gateRegPhone" placeholder="10-digit mobile number" pattern="[0-9]{10}" maxlength="10">
+                    </div>
+                    <div class="gate-form-group">
+                        <label for="gateRegPsw">Choose Password</label>
+                        <input type="password" id="gateRegPsw" placeholder="Minimum 6 characters" minlength="6" required autocomplete="new-password">
+                    </div>
+                    <button type="submit" class="modal-submit-btn">
+                        <i class="fa fa-user-check"></i> Register & Proceed to Booking
+                    </button>
+                </form>
+            </div>
+
+            <!-- 2. ROOM RESERVATION FORM VIEW (Shown only when authenticated) -->
+            <div id="modalBookingFormView" style="display: none;">
+                <div class="modal-header-section">
+                    <span class="modal-badge">Direct Online Booking</span>
+                    <h2>Reserve Your Konkan Stay</h2>
+                    <p>Instant confirmation with complimentary coastal breakfast</p>
+                </div>
+
+                <!-- Guest Logged In Banner -->
+                <div class="guest-logged-pill">
+                    <span><i class="fa fa-circle-user" style="color:#e0ac1c;"></i> Booking as: <strong id="modalGuestNameDisplay">Guest</strong></span>
+                    <a class="guest-logout-link" onclick="logoutGuest()">Switch Account</a>
+                </div>
+
+                <form id="modalReservationForm">
+                    <div class="modal-grid">
+                        <div class="modal-form-group">
+                            <label for="m_visitor_name">Full Name</label>
+                            <input type="text" id="m_visitor_name" name="visitor_name" placeholder="Full name" required>
+                        </div>
+                        <div class="modal-form-group">
+                            <label for="m_email">Email Address</label>
+                            <input type="email" id="m_email" name="email" placeholder="example@gmail.com" required>
+                        </div>
+                        <div class="modal-form-group">
+                            <label for="m_mobile">Phone Number</label>
+                            <input type="tel" id="m_mobile" name="mobile" placeholder="10-digit number" pattern="[0-9]{10}" maxlength="10" required>
+                        </div>
+                        <div class="modal-form-group">
+                            <label for="m_room">Room / Cottage Preference</label>
+                            <select id="m_room" name="room_preference" required>
+                                <option value="">Select Room / Cottage</option>
+                                <option value="Deluxe Ocean View Suite">Deluxe Ocean View Suite (₹4,500/night)</option>
+                                <option value="Traditional Wooden Cottage">Traditional Wooden Cottage (₹3,500/night)</option>
+                                <option value="Executive Sea Breeze Room">Executive Sea Breeze Room (₹3,000/night)</option>
+                                <option value="Family Heritage Villa">Family Heritage Villa (₹6,000/night)</option>
+                            </select>
+                        </div>
+                        <div class="modal-form-group">
+                            <label for="m_checkin">Check-in Date</label>
+                            <input type="date" id="m_checkin" name="checkin" required>
+                        </div>
+                        <div class="modal-form-group">
+                            <label for="m_checkout">Check-out Date</label>
+                            <input type="date" id="m_checkout" name="checkout" required>
+                        </div>
+                        <div class="modal-form-group">
+                            <label for="m_adults">Adults (12+ yrs)</label>
+                            <input type="number" id="m_adults" name="total_adults" min="1" max="15" value="2" required>
+                        </div>
+                        <div class="modal-form-group">
+                            <label for="m_children">Children (0-11 yrs)</label>
+                            <input type="number" id="m_children" name="total_children" min="0" max="10" value="0">
+                        </div>
+                        <div class="modal-form-group full-span">
+                            <label for="m_message">Special Requests / Notes</label>
+                            <textarea id="m_message" name="visitor_message" rows="3" placeholder="Pick-up from Kankavli station, baby cot, special food requests, anniversary setup..."></textarea>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="modal-submit-btn" id="modalBookSubmitBtn">
+                        <i class="fa fa-shield-heart"></i> Complete & Confirm Reservation
+                    </button>
+
+                    <div class="modal-guarantees">
+                        <span><i class="fa fa-circle-check"></i> Free Cancellation (48h)</span>
+                        <span><i class="fa fa-circle-check"></i> Pay at Resort</span>
+                        <span><i class="fa fa-circle-check"></i> Best Price Guarantee</span>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+<footer class="footer-distributed">
+    <div class="footer-left">
+        <h3>Swargatil<span>Konkan</span></h3>
+        <p class="footer-links">
+            <a href="web.html">Home</a> |
+            <a href="About.html">About</a> |
+            <a href="Menu.html">Menu</a> |
+            <a href="Service.html">Services</a> |
+            <a href="Gallery.html">Gallery</a> |
+            <a href="Culture.html">Culture</a> |
+            <a href="rate.html">Tariff</a> |
+            <a href="javascript:void(0)" onclick="handleBookNowClick(event)">Book Now</a> |
+            <a href="admin.html">Admin Dashboard</a>
+        </p>
+        <p class="footer-company-name">Copyright © 2021 <strong>swargatilkokan</strong> All rights reserved</p>
+    </div>
+
+    <div class="footer-center">
+        <div>
+            <i class="fa fa-map-marker"></i>
+            <p><span>Devgad, Sindhudurg</span> Maharashtra, India</p>
+        </div>
+        <div>
+            <i class="fa fa-phone"></i>
+            <p>+91 9836543624</p>
+        </div>
+        <div>
+            <i class="fa fa-envelope"></i>
+            <p><a href="mailto:swargatilkokan@gmail.com">swargatilkokan@gmail.com</a></p>
+        </div>
+    </div>
+
+    <div class="footer-right">
+        <p class="footer-company-about">
+            <span>About the Resort</span>
+            <strong>Swargatil Konkan</strong> is a luxury coastal resort situated in Devgad, Sindhudurg along the pristine Konkan kinara.
+        </p>
+        <div class="footer-icons">
+            <a href="https://www.facebook.com/" target="_blank"><i class="fa fa-facebook"></i></a>
+            <a href="https://www.instagram.com/" target="_blank"><i class="fa fa-instagram"></i></a>
+            <a href="https://www.linkedin.com/" target="_blank"><i class="fa fa-linkedin"></i></a>
+            <a href="https://twitter.com/" target="_blank"><i class="fa fa-twitter"></i></a>
+            <a href="https://www.youtube.com/" target="_blank"><i class="fa fa-youtube"></i></a>
+        </div>
+    </div>
+</footer>
+    
+        <script src="../js/booking-modal.js?v=2.5"></script>
+    <script src="../js/header.js?v=3.0"></script>
+</body>
+    
+</html>

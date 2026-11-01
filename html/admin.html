@@ -1,0 +1,787 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Resort Operations & Admin Portal - Swargatil Konkan</title>
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Cookie" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Poppins', 'Segoe UI', Tahoma, sans-serif; }
+    body {
+      background-color: #faf8f5; /* Warm resort ivory */
+      color: #2d2a30;
+      padding-bottom: 70px;
+    }
+
+    /* Top Navigation matching resort dark & gold footer brand */
+    .topbar {
+      background: linear-gradient(135deg, #1e1b20 0%, #2d2a30 100%);
+      color: #fff;
+      padding: 12px 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.2);
+      border-bottom: 3px solid #e0ac1c;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+    .topbar .brand {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+    .topbar .brand img {
+      height: 48px;
+      cursor: pointer;
+    }
+    .topbar .brand h2 {
+      font-family: 'Cookie', cursive;
+      font-size: 28px;
+      font-weight: normal;
+      color: #fff;
+      letter-spacing: 0.5px;
+    }
+    .topbar .brand h2 span {
+      color: #e0ac1c;
+    }
+    .topbar .brand small {
+      background: rgba(224, 172, 28, 0.2);
+      color: #e0ac1c;
+      border: 1px solid rgba(224, 172, 28, 0.4);
+      padding: 3px 10px;
+      border-radius: 20px;
+      font-size: 11px;
+      text-transform: uppercase;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      margin-left: 5px;
+    }
+
+    .topbar .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .btn-return-home {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: #e0ac1c;
+      color: #1e1b20 !important;
+      text-decoration: none;
+      padding: 9px 20px;
+      border-radius: 25px;
+      font-weight: 700;
+      font-size: 14px;
+      box-shadow: 0 3px 8px rgba(224, 172, 28, 0.3);
+      transition: all 0.2s ease;
+    }
+    .btn-return-home:hover {
+      background: #ffb300;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 14px rgba(224, 172, 28, 0.4);
+    }
+    .topbar a.nav-item {
+      color: #f0f0f0;
+      text-decoration: none;
+      font-size: 13px;
+      padding: 7px 14px;
+      border-radius: 6px;
+      background: rgba(255,255,255,0.08);
+      transition: background 0.2s;
+    }
+    .topbar a.nav-item:hover {
+      background: rgba(224, 172, 28, 0.25);
+      color: #e0ac1c;
+    }
+    .btn-logout {
+      background: #b71c1c !important;
+      color: #fff !important;
+    }
+
+    .container {
+      max-width: 1240px;
+      margin: 30px auto;
+      padding: 0 20px;
+    }
+
+    /* Page Header */
+    .dashboard-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 15px;
+      margin-bottom: 25px;
+      background: #fff;
+      padding: 22px 28px;
+      border-radius: 12px;
+      box-shadow: 0 3px 12px rgba(0,0,0,0.04);
+      border-left: 6px solid #e0ac1c;
+    }
+    .dashboard-header h1 {
+      font-family: 'Times New Roman', Times, serif;
+      font-size: 28px;
+      color: #2d2a30;
+    }
+    .dashboard-header p {
+      font-size: 14px;
+      color: #666;
+      margin-top: 4px;
+    }
+    .header-actions {
+      display: flex;
+      gap: 10px;
+    }
+    .btn-website-live {
+      background: #2e7d32;
+      color: white;
+      text-decoration: none;
+      padding: 10px 18px;
+      border-radius: 6px;
+      font-size: 13px;
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: background 0.2s;
+    }
+    .btn-website-live:hover { background: #1b5e20; }
+    .btn-refresh {
+      background: #2d2a30;
+      color: #e0ac1c;
+      border: 1px solid #e0ac1c;
+      padding: 10px 18px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 13px;
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.2s;
+    }
+    .btn-refresh:hover { background: #1e1b20; transform: translateY(-1px); }
+
+    /* Stats Grid */
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 20px;
+      margin-bottom: 30px;
+    }
+    .stat-card {
+      background: #fff;
+      border-radius: 12px;
+      padding: 22px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      border-left: 5px solid #e0ac1c;
+      border-top: 1px solid #f2ede4;
+      border-right: 1px solid #f2ede4;
+      border-bottom: 1px solid #f2ede4;
+      transition: transform 0.2s ease;
+    }
+    .stat-card:hover {
+      transform: translateY(-3px);
+    }
+    .stat-card i {
+      font-size: 38px;
+      color: #e0ac1c;
+    }
+    .stat-card h3 {
+      font-family: 'Times New Roman', Times, serif;
+      font-size: 32px;
+      font-weight: bold;
+      color: #2d2a30;
+    }
+    .stat-card p {
+      font-size: 12px;
+      color: #888;
+      text-transform: uppercase;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+    }
+
+    /* Cards */
+    .card {
+      background: #fff;
+      border-radius: 12px;
+      padding: 26px;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.05);
+      margin-bottom: 30px;
+      border: 1px solid #f0e9dc;
+    }
+    .card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 22px;
+      border-bottom: 2px solid #faf5ea;
+      padding-bottom: 14px;
+    }
+    .card-header h3 {
+      font-family: 'Times New Roman', Times, serif;
+      font-size: 20px;
+      color: #8d1c1c;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    /* Search & Filter Toolbar */
+    .toolbar {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+    .search-input {
+      padding: 8px 14px;
+      border: 1px solid #ddd;
+      border-radius: 20px;
+      font-size: 13px;
+      width: 240px;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+    .search-input:focus {
+      border-color: #e0ac1c;
+      box-shadow: 0 0 5px rgba(224, 172, 28, 0.3);
+    }
+    .filter-btn {
+      padding: 6px 16px;
+      border: 1px solid #ddd;
+      background: #fff;
+      border-radius: 20px;
+      cursor: pointer;
+      font-size: 12px;
+      font-weight: 600;
+      color: #666;
+      transition: all 0.2s;
+    }
+    .filter-btn.active {
+      background: #e0ac1c;
+      color: #1e1b20;
+      border-color: #e0ac1c;
+    }
+
+    /* Tables */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 13px;
+    }
+    th, td {
+      padding: 14px 15px;
+      text-align: left;
+      border-bottom: 1px solid #f2ede4;
+    }
+    th {
+      background: #2d2a30;
+      color: #e0ac1c;
+      font-weight: 600;
+      text-transform: uppercase;
+      font-size: 12px;
+      letter-spacing: 0.5px;
+    }
+    th:first-child { border-top-left-radius: 8px; }
+    th:last-child { border-top-right-radius: 8px; }
+    tr:hover { background: #fdfbf7; }
+
+    .booking-id {
+      color: #8d1c1c;
+      font-weight: bold;
+    }
+
+    .status-badge {
+      display: inline-block;
+      padding: 4px 12px;
+      border-radius: 20px;
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    .status-confirmed { background: #e8f5e9; color: #2e7d32; border: 1px solid #a5d6a7; }
+    .status-cancelled { background: #ffebee; color: #c62828; border: 1px solid #ef9a9a; }
+    .status-pending { background: #fff8e1; color: #f57f17; border: 1px solid #ffe082; }
+
+    .actions-cell {
+      display: flex;
+      gap: 6px;
+    }
+    .btn-sm {
+      padding: 6px 12px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 11px;
+      font-weight: 600;
+      transition: all 0.2s;
+    }
+    .btn-sm:hover { opacity: 0.88; transform: translateY(-1px); }
+    .btn-confirm { background: #2e7d32; color: #fff; }
+    .btn-cancel { background: #e65100; color: #fff; }
+    .btn-delete { background: #c62828; color: #fff; }
+
+    .stars { color: #fbc02d; font-size: 14px; }
+
+    /* Sticky Floating Button to Go Back to Resort Website */
+    .floating-back-btn {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      background: #2d2a30;
+      color: #e0ac1c;
+      padding: 12px 24px;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 14px;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.25);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      z-index: 999;
+      transition: all 0.2s ease;
+      border: 2px solid #e0ac1c;
+    }
+    .floating-back-btn:hover {
+      background: #1e1b20;
+      color: #fff;
+      transform: scale(1.05);
+      box-shadow: 0 6px 20px rgba(0,0,0,0.35);
+    }
+  </style>
+    <link rel="stylesheet" href="../css/footer.css">
+</head>
+<body>
+
+  <!-- Top Bar matching Resort brand -->
+  <div class="topbar">
+    <div class="brand">
+      <a href="web.html"><img src="../images/logo3.png" alt="Swargatil Konkan Logo"></a>
+      <h2>Swargatil <span>Konkan</span></h2>
+      <small>Operations & Admin Portal</small>
+    </div>
+    <div class="nav-links">
+      <a href="web.html" class="btn-return-home" title="Go back to Swargatil Konkan website">
+        <i class="fa fa-arrow-left"></i> Back to Resort Website
+      </a>
+      <a href="web.html" class="nav-item"><i class="fa fa-home"></i> Home</a>
+      <a href="Booked.html" class="nav-item"><i class="fa fa-calendar-check"></i> Bookings</a>
+      <a href="Menu.html" class="nav-item"><i class="fa fa-utensils"></i> Menu</a>
+      <a href="Gallery.html" class="nav-item"><i class="fa fa-image"></i> Gallery</a>
+      <a href="Login.html" class="nav-item btn-logout" onclick="logout()"><i class="fa fa-sign-out-alt"></i> Logout</a>
+    </div>
+  </div>
+
+  <div class="container">
+
+    <!-- Page Title & Quick Actions -->
+    <div class="dashboard-header">
+      <div>
+        <h1>Resort Management Dashboard</h1>
+        <p>Live management of room bookings, guest reviews, and contact inquiries backed by MySQL.</p>
+      </div>
+      <div class="header-actions">
+        <a href="web.html" class="btn-website-live">
+          <i class="fa fa-globe"></i> View Live Resort
+        </a>
+        <button class="btn-refresh" onclick="loadDashboardData()">
+          <i class="fa fa-sync-alt"></i> Refresh Data
+        </button>
+      </div>
+    </div>
+
+    <!-- Statistics Overview Cards -->
+    <div class="stats-grid">
+      <div class="stat-card">
+        <i class="fa fa-calendar-alt"></i>
+        <div>
+          <h3 id="statTotalBookings">0</h3>
+          <p>Total Bookings</p>
+        </div>
+      </div>
+      <div class="stat-card" style="border-left-color: #2e7d32;">
+        <i class="fa fa-check-circle" style="color: #2e7d32;"></i>
+        <div>
+          <h3 id="statActiveBookings">0</h3>
+          <p>Active Bookings</p>
+        </div>
+      </div>
+      <div class="stat-card" style="border-left-color: #e65100;">
+        <i class="fa fa-star" style="color: #e65100;"></i>
+        <div>
+          <h3 id="statFeedbacks">0 (<span id="statAvgRating">5.0</span>★)</h3>
+          <p>Customer Feedbacks</p>
+        </div>
+      </div>
+      <div class="stat-card" style="border-left-color: #0277bd;">
+        <i class="fa fa-envelope" style="color: #0277bd;"></i>
+        <div>
+          <h3 id="statContacts">0</h3>
+          <p>Guest Inquiries</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bookings Management -->
+    <div class="card">
+      <div class="card-header">
+        <h3><i class="fa fa-bed"></i> Room Bookings Management</h3>
+        <div class="toolbar">
+          <input type="text" id="bookingSearchInput" class="search-input" placeholder="Search by name, phone, email..." onkeyup="filterBookingsTable()">
+          <button class="filter-btn active" onclick="setBookingFilter('all', this)">All</button>
+          <button class="filter-btn" onclick="setBookingFilter('Confirmed', this)">Confirmed</button>
+          <button class="filter-btn" onclick="setBookingFilter('Cancelled', this)">Cancelled</button>
+        </div>
+      </div>
+      <div style="overflow-x: auto;">
+        <table>
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Guest Name</th>
+              <th>Contact Details</th>
+              <th>Check-in / Check-out</th>
+              <th>Guests</th>
+              <th>Room Type</th>
+              <th>Status</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody id="bookingsTableBody">
+            <tr><td colspan="8" style="text-align:center;">Loading bookings from MySQL...</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- Customer Feedback & Reviews -->
+    <div class="card">
+      <div class="card-header">
+        <h3><i class="fa fa-comments"></i> Guest Feedback & Reviews</h3>
+      </div>
+      <div style="overflow-x: auto;">
+        <table>
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Guest</th>
+              <th>Contact</th>
+              <th>Satisfied</th>
+              <th>Rating</th>
+              <th>Review / Message</th>
+              <th>Date</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody id="feedbacksTableBody">
+            <tr><td colspan="8" style="text-align:center;">Loading feedbacks from MySQL...</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- Guest Inquiries -->
+    <div class="card">
+      <div class="card-header">
+        <h3><i class="fa fa-inbox"></i> Guest Contact Messages</h3>
+      </div>
+      <div style="overflow-x: auto;">
+        <table>
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Sender</th>
+              <th>Message</th>
+              <th>Received At</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody id="contactsTableBody">
+            <tr><td colspan="5" style="text-align:center;">Loading inquiries from MySQL...</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Floating Navigation Button to return to Website -->
+  <a href="web.html" class="floating-back-btn" title="Click to return to the Resort Website">
+    <i class="fa fa-arrow-left"></i> Back to Resort Website
+  </a>
+
+  <script>
+    let allBookings = [];
+    let currentFilter = 'all';
+
+    async function loadDashboardData() {
+      // 1. Fetch Overview Stats
+      try {
+        const statsRes = await fetch('/api/bookings/stats/overview');
+        const statsData = await statsRes.json();
+        if (statsData.success) {
+          document.getElementById('statTotalBookings').innerText = statsData.stats.totalBookings;
+          document.getElementById('statActiveBookings').innerText = statsData.stats.confirmedBookings;
+          document.getElementById('statFeedbacks').innerText = statsData.stats.totalFeedbacks;
+          document.getElementById('statAvgRating').innerText = statsData.stats.avgRating;
+          document.getElementById('statContacts').innerText = statsData.stats.totalContacts;
+        }
+      } catch (e) {
+        console.warn('Overview stats fetch fallback:', e);
+      }
+
+      // 2. Fetch Bookings
+      try {
+        const res = await fetch('/api/bookings');
+        const data = await res.json();
+        if (data.success) {
+          allBookings = data.bookings;
+          renderBookingsTable();
+        }
+      } catch (err) {
+        console.error('Failed to load bookings:', err);
+      }
+
+      // 3. Fetch Feedbacks
+      try {
+        const res = await fetch('/api/feedbacks');
+        const data = await res.json();
+        if (data.success) {
+          const tbody = document.getElementById('feedbacksTableBody');
+          if (data.feedbacks.length === 0) {
+            tbody.innerHTML = '<tr><td colspan="8" style="text-align:center;">No feedback submitted yet.</td></tr>';
+          } else {
+            tbody.innerHTML = data.feedbacks.map(f => `
+              <tr>
+                <td><strong>#${f.id}</strong></td>
+                <td><strong>${escapeHtml(f.uname)}</strong></td>
+                <td>${escapeHtml(f.email)}<br><small style="color:#777;">${escapeHtml(f.phone || '-')}</small></td>
+                <td>${f.satisfy === 'yes' ? '<span style="color:#2e7d32; font-weight:bold;">Yes</span>' : '<span style="color:#c62828;">No</span>'}</td>
+                <td><span class="stars">${'★'.repeat(f.star_rating)}${'☆'.repeat(Math.max(0, 5 - f.star_rating))}</span></td>
+                <td>${escapeHtml(f.message)}</td>
+                <td><small>${new Date(f.created_at).toLocaleDateString()}</small></td>
+                <td>
+                  <button class="btn-sm btn-delete" onclick="deleteFeedback(${f.id})">Delete</button>
+                </td>
+              </tr>
+            `).join('');
+          }
+        }
+      } catch (err) {
+        console.error('Failed to load feedbacks:', err);
+      }
+
+      // 4. Fetch Contacts
+      try {
+        const res = await fetch('/api/contacts');
+        const data = await res.json();
+        if (data.success) {
+          const tbody = document.getElementById('contactsTableBody');
+          if (data.contacts.length === 0) {
+            tbody.innerHTML = '<tr><td colspan="5" style="text-align:center;">No contact messages yet.</td></tr>';
+          } else {
+            tbody.innerHTML = data.contacts.map(c => `
+              <tr>
+                <td><strong>#${c.id}</strong></td>
+                <td><strong>${escapeHtml(c.name)}</strong><br><small style="color:#777;">${escapeHtml(c.email || c.phone || '-')}</small></td>
+                <td>${escapeHtml(c.message)}</td>
+                <td><small>${new Date(c.created_at).toLocaleString()}</small></td>
+                <td>
+                  <button class="btn-sm btn-delete" onclick="deleteContact(${c.id})">Delete</button>
+                </td>
+              </tr>
+            `).join('');
+          }
+        }
+      } catch (err) {
+        console.error('Failed to load contacts:', err);
+      }
+    }
+
+    function renderBookingsTable() {
+      const search = (document.getElementById('bookingSearchInput').value || '').toLowerCase();
+      const filtered = allBookings.filter(b => {
+        const matchFilter = currentFilter === 'all' || b.status === currentFilter;
+        const matchSearch = !search || 
+          b.visitor_name.toLowerCase().includes(search) || 
+          b.email.toLowerCase().includes(search) || 
+          b.mobile.includes(search);
+        return matchFilter && matchSearch;
+      });
+
+      const tbody = document.getElementById('bookingsTableBody');
+      if (filtered.length === 0) {
+        tbody.innerHTML = '<tr><td colspan="8" style="text-align:center;">No matching bookings found.</td></tr>';
+        return;
+      }
+
+      tbody.innerHTML = filtered.map(b => `
+        <tr>
+          <td><span class="booking-id">#SKR-${b.id}</span></td>
+          <td><strong>${escapeHtml(b.visitor_name)}</strong></td>
+          <td>${escapeHtml(b.mobile)}<br><small style="color:#777;">${escapeHtml(b.email)}</small></td>
+          <td><strong>${b.checkin}</strong> to <strong>${b.checkout}</strong></td>
+          <td>${b.total_adults} Adult(s), ${b.total_children} Child(ren)</td>
+          <td><span style="text-transform: capitalize;">${escapeHtml(b.room_preference)}</span></td>
+          <td>
+            <span class="status-badge ${b.status === 'Confirmed' ? 'status-confirmed' : 'status-cancelled'}">
+              ${b.status}
+            </span>
+          </td>
+          <td>
+            <div class="actions-cell">
+              ${b.status !== 'Confirmed' ? 
+                `<button class="btn-sm btn-confirm" onclick="updateStatus(${b.id}, 'Confirmed')">Confirm</button>` : 
+                `<button class="btn-sm btn-cancel" onclick="updateStatus(${b.id}, 'Cancelled')">Cancel</button>`}
+              <button class="btn-sm btn-delete" onclick="deleteBooking(${b.id})">Delete</button>
+            </div>
+          </td>
+        </tr>
+      `).join('');
+    }
+
+    function setBookingFilter(filter, btn) {
+      currentFilter = filter;
+      document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      renderBookingsTable();
+    }
+
+    function filterBookingsTable() {
+      renderBookingsTable();
+    }
+
+    async function updateStatus(id, newStatus) {
+      if (!confirm(`Are you sure you want to mark booking #SKR-${id} as ${newStatus}?`)) return;
+      try {
+        const res = await fetch(`/api/bookings/${id}/status`, {
+          method: 'PATCH',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ status: newStatus })
+        });
+        const data = await res.json();
+        alert(data.message);
+        loadDashboardData();
+      } catch (err) {
+        alert('Failed to update status: ' + err.message);
+      }
+    }
+
+    async function deleteBooking(id) {
+      if (!confirm(`Permanently delete booking #SKR-${id}? This action cannot be undone.`)) return;
+      try {
+        const res = await fetch(`/api/bookings/${id}`, { method: 'DELETE' });
+        const data = await res.json();
+        alert(data.message);
+        loadDashboardData();
+      } catch (err) {
+        alert('Failed to delete booking: ' + err.message);
+      }
+    }
+
+    async function deleteFeedback(id) {
+      if (!confirm(`Delete feedback #${id}?`)) return;
+      try {
+        const res = await fetch(`/api/feedbacks/${id}`, { method: 'DELETE' });
+        const data = await res.json();
+        alert(data.message);
+        loadDashboardData();
+      } catch (err) {
+        alert('Failed to delete feedback: ' + err.message);
+      }
+    }
+
+    async function deleteContact(id) {
+      if (!confirm(`Delete contact inquiry #${id}?`)) return;
+      try {
+        const res = await fetch(`/api/contacts/${id}`, { method: 'DELETE' });
+        const data = await res.json();
+        alert(data.message);
+        loadDashboardData();
+      } catch (err) {
+        alert('Failed to delete inquiry: ' + err.message);
+      }
+    }
+
+    function logout() {
+      localStorage.removeItem('swargatil_user');
+      alert('Logged out successfully.');
+      window.location.href = 'web.html';
+    }
+
+    function escapeHtml(str) {
+      if (!str) return '';
+      return String(str)
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;');
+    }
+
+    document.addEventListener('DOMContentLoaded', loadDashboardData);
+  </script>
+
+<footer class="footer-distributed">
+    <div class="footer-left">
+        <h3>Swargatil<span>Konkan</span></h3>
+        <p class="footer-links">
+            <a href="web.html">Home</a> |
+            <a href="About.html">About</a> |
+            <a href="Menu.html">Menu</a> |
+            <a href="Service.html">Services</a> |
+            <a href="Gallery.html">Gallery</a> |
+            <a href="Culture.html">Culture</a> |
+            <a href="rate.html">Tariff</a> |
+            <a href="web.html#booking-section">Book Now</a> |
+            <a href="admin.html">Admin Dashboard</a>
+        </p>
+        <p class="footer-company-name">Copyright © 2021 <strong>swargatilkokan</strong> All rights reserved</p>
+    </div>
+
+    <div class="footer-center">
+        <div>
+            <i class="fa fa-map-marker"></i>
+            <p><span>Devgad, Sindhudurg</span> Maharashtra, India</p>
+        </div>
+        <div>
+            <i class="fa fa-phone"></i>
+            <p>+91 9836543624</p>
+        </div>
+        <div>
+            <i class="fa fa-envelope"></i>
+            <p><a href="mailto:swargatilkokan@gmail.com">swargatilkokan@gmail.com</a></p>
+        </div>
+    </div>
+
+    <div class="footer-right">
+        <p class="footer-company-about">
+            <span>About the Resort</span>
+            <strong>Swargatil Konkan</strong> is a luxury coastal resort situated in Devgad, Sindhudurg along the pristine Konkan kinara.
+        </p>
+        <div class="footer-icons">
+            <a href="https://www.facebook.com/" target="_blank"><i class="fa fa-facebook"></i></a>
+            <a href="https://www.instagram.com/" target="_blank"><i class="fa fa-instagram"></i></a>
+            <a href="https://www.linkedin.com/" target="_blank"><i class="fa fa-linkedin"></i></a>
+            <a href="https://twitter.com/" target="_blank"><i class="fa fa-twitter"></i></a>
+            <a href="https://www.youtube.com/" target="_blank"><i class="fa fa-youtube"></i></a>
+        </div>
+    </div>
+</footer>
+    <script src="../js/header.js?v=3.0"></script>
+</body>
+</html>

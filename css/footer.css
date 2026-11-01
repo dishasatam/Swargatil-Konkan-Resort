@@ -1,0 +1,226 @@
+/* ========================================================
+   css/footer.css - Universal Swargatil Konkan Resort Sticky Footer
+   ======================================================== */
+
+@import url('https://fonts.googleapis.com/css?family=Cookie');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+/* Rock-solid sticky footer structure: keeps footer at viewport bottom on short pages, 
+   and pushes down naturally after content on long pages without ANY overlap */
+html {
+    height: 100%;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    padding: 0;
+}
+
+body > *:not(footer):not(script):not(style) {
+    flex-shrink: 0;
+}
+
+/* Master Footer Container */
+footer,
+.footer-distributed {
+    position: relative !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    bottom: auto !important;
+    top: auto !important;
+    left: 0 !important;
+    right: 0 !important;
+    margin: 0 !important;
+    margin-top: auto !important;
+    clear: both !important;
+    float: none !important;
+    display: block !important;
+    box-sizing: border-box !important;
+    background-color: #2d2a30 !important;
+    color: #ffffff !important;
+    text-align: left;
+    font: 14px 'Poppins', sans-serif;
+    padding: 50px 8% 40px 8% !important;
+    height: auto !important;
+    min-height: 280px;
+    z-index: 100;
+    border-top: 3px solid #e0ac1c;
+}
+
+/* Three Column Layout */
+.footer-distributed .footer-left,
+.footer-distributed .footer-center,
+.footer-distributed .footer-right {
+    display: inline-block;
+    vertical-align: top;
+    box-sizing: border-box;
+}
+
+/* Footer Left */
+.footer-distributed .footer-left {
+    width: 32%;
+}
+
+.footer-distributed h3 {
+    color: #ffffff;
+    font: normal 38px 'Cookie', cursive;
+    margin: 0 0 10px 0;
+    line-height: 1.1;
+}
+
+.footer-distributed h3 span {
+    color: #e0ac1c;
+}
+
+.footer-distributed .footer-links {
+    color: #ffffff;
+    margin: 15px 0 14px;
+    font-size: 13.5px;
+    font-weight: 500;
+    line-height: 1.8;
+}
+
+.footer-distributed .footer-links a {
+    display: inline-block;
+    text-decoration: none;
+    color: #f0f0f0;
+    transition: color 0.2s ease;
+}
+
+.footer-distributed .footer-links a:hover {
+    color: #e0ac1c;
+    text-decoration: underline;
+}
+
+.footer-distributed .footer-company-name {
+    color: #8f9296;
+    font-size: 12.5px;
+    font-weight: normal;
+    margin-top: 12px;
+}
+
+/* Footer Center */
+.footer-distributed .footer-center {
+    width: 35%;
+    padding: 0 20px;
+}
+
+.footer-distributed .footer-center > div {
+    display: flex;
+    align-items: center;
+    margin-bottom: 14px;
+}
+
+.footer-distributed .footer-center i {
+    background-color: #33383b;
+    color: #e0ac1c;
+    font-size: 18px;
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 38px;
+    margin-right: 15px;
+    flex-shrink: 0;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.footer-distributed .footer-center p {
+    color: #ffffff;
+    font-size: 13.5px;
+    font-weight: normal;
+    margin: 0;
+    line-height: 1.4;
+}
+
+.footer-distributed .footer-center p span {
+    display: block;
+    font-weight: 600;
+    font-size: 14px;
+    color: #e0ac1c;
+}
+
+.footer-distributed .footer-center p a {
+    color: #e0ac1c;
+    text-decoration: none;
+}
+
+.footer-distributed .footer-center p a:hover {
+    text-decoration: underline;
+}
+
+/* Footer Right */
+.footer-distributed .footer-right {
+    width: 32%;
+}
+
+.footer-distributed .footer-company-about {
+    line-height: 22px;
+    color: #92999f;
+    font-size: 13.5px;
+    font-weight: normal;
+    margin: 0;
+}
+
+.footer-distributed .footer-company-about span {
+    display: block;
+    color: #ffffff;
+    font-size: 16px;
+    font-weight: 700;
+    margin-bottom: 8px;
+    letter-spacing: 0.5px;
+}
+
+.footer-distributed .footer-icons {
+    margin-top: 20px;
+    display: flex;
+    gap: 8px;
+}
+
+.footer-distributed .footer-icons a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    background-color: #33383b;
+    border-radius: 4px;
+    font-size: 16px;
+    color: #ffffff;
+    text-decoration: none;
+    transition: all 0.2s ease;
+}
+
+.footer-distributed .footer-icons a:hover {
+    background-color: #e0ac1c;
+    color: #1e1b20;
+    transform: translateY(-2px);
+}
+
+/* Push to bottom naturally on all pages, flush with hero container on web.html */
+.container + footer,
+.container + .footer-distributed {
+    margin-top: 0 !important;
+}
+@media (max-width: 900px) {
+    .footer-distributed .footer-left,
+    .footer-distributed .footer-center,
+    .footer-distributed .footer-right {
+        display: block;
+        width: 100%;
+        margin-bottom: 30px;
+        text-align: center;
+        padding: 0;
+    }
+    .footer-distributed .footer-center > div {
+        justify-content: center;
+    }
+    .footer-distributed .footer-icons {
+        justify-content: center;
+    }
+}
